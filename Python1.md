@@ -1,7 +1,7 @@
 # PYTHON PROGRAMMING
 
 ## What is Python and why learn it?
-All programming languages are formal sets of instructions that are used to control the behavior of a computer. These instructions are commonly referred to as code. The code is just plain text that people can write and understand, but which can also be translated into a language that computer processor can directly understand. Under the hood, every application that you use to interact with your computer such as your text editor, operating system, or favorite computer game was written as code. Short programs are often called **__scripts__** and the activity of writing them is scrpting.
+All programming languages are formal sets of instructions that are used to control the behavior of a computer. These instructions are commonly referred to as code. The code is just plain text that people can write and understand, but which can also be translated into a language that computer processor can directly understand. Under the hood, every application that you use to interact with your computer such as your text editor, operating system, or favorite computer game was written as code. Short programs are often called **_scripts_** and the activity of writing them is scrpting.
 
 Python is a general-purpose language that is gaining popularity as the language of choice for beginner scientific programmers: it is relatively easy to learn, has an ever-growing base of resources and a large community of users. Popular programs written in Python include Dropbox, the interface of Youtube, Instagram, and many Google apps. Python programs can be very concise and often have fewer lines of code than similar programs in other languages. Python is also rapidly gaining ground in bioinformatics and biology, slowly replacing another popular general-use language called "Perl". The Python community is currently transitioning from an older version of the language, Python 2, into Python version 3. There are several differences between the two, and here we will focus on Python 3.
 
@@ -15,12 +15,12 @@ Python 3.4.2 (default, Oct  8 2014, 13:18:07)
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
-The prompt has changed its appearance to the three greater-than signs `>>>`. You can exit the interactive interpreter by typing `quit()`. The first thing we will learn in Python is to print some text. Type:
+The prompt has changed its appearance to the three greater-than signs `>>>`. The first thing we will learn in Python is to print some text. Type:
 ```python
 >>> # this is a conceited remark
 >>> print("Work is for people who don't know how to code")
 ```
-Anything that starts with `#` is ignored and acts as a comment. Comments are an important in scripting, as they can help the future you and others to understand your code. The `print()` statement represents a function that prints whatever we put in between the parentheses to the screen. As in the Bash shell, you can go back to the previous command by pressing the up arrow key. Again, just as in the shell, correct spelling, parentheses, and quotes are important.
+Anything that starts with `#` is ignored and acts as a comment. Comments are an important in scripting, as they can help the future you and others to understand your code. The `print()` statement represents a function that prints whatever we put in between the parentheses to the screen. As in the Bash shell, you can go back to the previous command by pressing the up arrow key. Again, just as in the shell, correct spelling, parentheses, and quotes are important. You can exit the interactive interpreter by typing `quit()`.
 
 ## Variables
 A very important basic concept in programming is that of a variable. Variables are names that represent some other entities. You can think of a variable as a kind of box that stores data. A simple example would be to store some text in a variable and then print it:
@@ -32,7 +32,7 @@ There are several things to discuss here. First, there are some rules that gover
 In the code above, we put the value `Hello!` into a variable called `greeting` by using the equal `=` sign. This is how values are **_assigned_** to variables.
 
 ## Data types: strings
-Python recognizes various types of data. This is because certain operations make sense for one kind of data but not others. For example, division and substraction are great for numbers but are not applicable to text. As biologists, we are often interested in manipulating data that programmers call **__strings__**. Strings are just sequences of characters and are a good representation for, for example, DNA or amino acid sequence data. You can of strings as plain text. In Python, we let the computer know that the text we are writing is a string by enclosing it in quotes (double or single). In the example above, we used the string `Hello!`. Python has certain functions that can be applied to the most common data types, and we will begin with exploring the ones available for strings.
+Python recognizes various types of data. This is because certain operations make sense for one kind of data but not others. For example, division and substraction are great for numbers but are not applicable to text. As biologists, we are often interested in manipulating data that programmers call **_strings_**. Strings are just sequences of characters and are a good representation for, for example, DNA or amino acid sequence data. You can of strings as plain text. In Python, we let the computer know that the text we are writing is a string by enclosing it in quotes (double or single). In the example above, we used the string `Hello!`. Python has certain functions that can be applied to the most common data types, and we will begin with exploring the ones available for strings.
 You can **_concatenate_** (put together) strings by using the `+` operator:
 ```python
 >>> my_intron = "ATATTT"
@@ -54,14 +54,14 @@ Python has built-in functions that are useful for manipulating strings. Python f
 12
 ```
 Later we will see `len()` applied to other data types.
-You can also do operations that are specific to a particular data type. These are called **__methods__**, and are applied slightly differently from functions. We use them by first assigning our data to a variable and then following the variable name by a period `.`, followed by the method's name and parentheses:
+You can also do operations that are specific to a particular data type. These are called **_methods_**, and are applied slightly differently from functions. We use them by first assigning our data to a variable and then following the variable name by a period `.`, followed by the method's name and parentheses:
 ```python
 >>> print(my_sequence.lower())
 atatttgcgccc
 >>> print(my_sequence)
 ATATTTGCGCCC
 ```
-In the above we applied the method `lower()` to our `my_sequence` variable and the `print()` function on the results of that method. Note that the contents of our variable `my_sequence` were not changed. We can change the contents, or **__overwrite__** a variable by assigning a new value to its name:
+In the above we applied the method `lower()` to our `my_sequence` variable and the `print()` function on the results of that method. Note that the contents of our variable `my_sequence` were not changed. We can change the contents, or **_overwrite_** a variable by assigning a new value to its name:
 ```python
 >>> my_sequence = my_sequence.lower()
 >>> print(my_sequence)
@@ -104,7 +104,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: Can't convert 'int' object to str implicitly
 ```
-What is this about? We know that we can concatenate strings with the plus sign, so why does this not work? The error above tells us where something went wrong  (line 1 of <stdin>) and what was the error (TypeError: Can't convert 'int' object to str implicitly). The error tells us that there was a "int" object that could not be converted to a "str", the Python's shorthand for string. Turns out that the output of the `count()` method is not a string but a different data type, an **__integer__** or `int`. We will explain how Python handles number in a separate section, but for now its enough to say that integers are simply "whole" numbers, those without fractional components.
+What is this about? We know that we can concatenate strings with the plus sign, so why does this not work? The error above tells us where something went wrong  (line 1 of <stdin>) and what was the error (TypeError: Can't convert 'int' object to str implicitly). The error tells us that there was a "int" object that could not be converted to a "str", the Python's shorthand for string. Turns out that the output of the `count()` method is not a string but a different data type, an **_integer_** or `int`. We will explain how Python handles number in a separate section, but for now its enough to say that integers are simply "whole" numbers, those without fractional components.
 We can make the above work by converting the integer output of `count()` into a string. This is done using the `str()` function:
 ```python
 >>> print("There are " +  str(my_sequence.count('a')) + " occurrences of 'a' in your sequence")
@@ -170,8 +170,8 @@ You can perform all standard types of mathematical expressions on floats and int
 >>> my_num1 * my_num2
 28.273500000000002
 ```
-To better understand how the code is interpreted it is important to highlight here the concept of an expression. The math above are simple examples of expressions. Python tries to **__evaluate__** each expression until it becomes a single value. Python expressions using numbers behave according to the rules of mathematical expressions, that is they follow the order of operations where exponents `**` are evaluated first, followed by multiplication with `*` and division `/`, finally followed by addition `+` and subtraction `-` (all evaluated from left to right). A simple mathematical expression will be evaluated piece by piece until it returns a single value:
-```
+To better understand how the code is interpreted it is important to highlight here the concept of an expression. The math above are simple examples of expressions. Python tries to **_evaluate_** each expression until it becomes a single value. Python expressions using numbers behave according to the rules of mathematical expressions, that is they follow the order of operations where exponents `**` are evaluated first, followed by multiplication with `*` and division `/`, finally followed by addition `+` and subtraction `-` (all evaluated from left to right). A simple mathematical expression will be evaluated piece by piece until it returns a single value:
+```python
 2 * 2 - (2 + 2) / 5
 2 * 2 -    4    / 5
   4   -    4    / 5
@@ -183,7 +183,7 @@ It is helpful to realize that other statements we write in Python behave in a si
 print("There are " +  str(my_sequence.count('a')) + " occurrences of 'a' in your sequence")
 ```
 We can think of this code as an expression being evaluated until it returns a single value:
-```
+```python
 print("There are " +  str(my_sequence.count('a')) + " occurrences of 'a' in your sequence")
 print("There are " +  str(           2          ) + " occurrences of 'a' in your sequence")
 print("There are " +                "2"           + " occurrences of 'a' in your sequence")
@@ -201,5 +201,57 @@ True
   File "<stdin>", line 1
 SyntaxError: can't assign to keyword
 ```
-Boolean values are used to compare statements and will be important when we will be talking about flow control, that is  code that can behave differently depending on the conditions. Just as in mathematical expressions, there are special operators that are 
-
+Boolean values are used to compare statements and will be especially important when we will be talking about flow control, that is  code that can behave differently depending on whether a condition is `True` or `False`. Just as in mathematical expressions, there are special operators that are used to compare values:
+operator | meaning
+:-------:|:---------
+==       |  equal to
+!=       |  not equal to
+<        |  less than
+>        |  greater than
+<=       |  less than or equal to
+>=       | greater than or equal to
+Let's try some expressions that will evaluate to `True` or `False`:
+```python
+>>> 2 == 2
+True
+>>> 2 != 2
+False
+>>> 5 > 15
+False
+>>> "x" != "z"
+True
+```
+## More on strings
+There are a couple more things about formatting strings that will be useful. Just as in the shell, you can add special characters to your strings and have strings that span multiple lines:
+```python
+>>> print("This is a multiline\nstring.")
+This is a multiline
+string.
+```
+As you may remember from the command line tutorials, the `\n` character signifies newline. Another way to specify multiline strings is just enclose them in three quote signs `"`:
+```python
+>>> print("""This is a multiline
+... string""")
+This is a multiline
+string
+```
+The above is also useful for multiline comments explaining your code.
+You can access certain characters or subsets of a string using Python's **_indexing_** system. Try:
+```python
+>>> my_seq = "ATAATTGATAGTATGCTACC"
+>>> my_seq[0]
+'A'
+>>> my_seq[0:5]
+'ATAAT'
+>>> my_seq[:5]
+'ATAAT'
+>>> my_seq[5:]
+'TGATAGTATGCTACC'
+>>> my_seq[5:7]
+'TG'
+```
+As you can see, the indexing system in Python works somewhat different from our concept of what would be the ordering of elements in a set: `my_seq[0]` means "**first** character of my_seq", `my_seq[0:5]` means "characters first to **fourth** (5 - 1) of my_seq", and my_seq[5:] means "characters **fifth** to the end of my_seq". In other words, indexing in Python starts with zero and is first-inclusive but last-exclusive. This helps to visualize how elements of a string are counted:
+```
+"A  T  A  A  T  T  G  A  T  A  G  T  A  T  G  C  T  A  C  C"
+ 0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19
+```
