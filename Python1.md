@@ -1,7 +1,7 @@
 # PYTHON PROGRAMMING
 
 ## What is Python and why learn it?
-All programming languages are formal sets of instructions that are used to control the behavior of a computer. These instructions are commonly referred to as code. The code is just plain text that people can write and understand, but which can also be translated into a language that computer processor can directly understand. Under the hood, every application that you use to interact with your computer such as your text editor, operating system, or favorite computer game was written as code.
+All programming languages are formal sets of instructions that are used to control the behavior of a computer. These instructions are commonly referred to as code. The code is just plain text that people can write and understand, but which can also be translated into a language that computer processor can directly understand. Under the hood, every application that you use to interact with your computer such as your text editor, operating system, or favorite computer game was written as code. Short programs are often called **__scripts__** and the activity of writing them is scrpting.
 
 Python is a general-purpose language that is gaining popularity as the language of choice for beginner scientific programmers: it is relatively easy to learn, has an ever-growing base of resources and a large community of users. Popular programs written in Python include Dropbox, the interface of Youtube, Instagram, and many Google apps. Python programs can be very concise and often have fewer lines of code than similar programs in other languages. Python is also rapidly gaining ground in bioinformatics and biology, slowly replacing another popular general-use language called "Perl". The Python community is currently transitioning from an older version of the language, Python 2, into Python version 3. There are several differences between the two, and here we will focus on Python 3.
 
@@ -15,11 +15,11 @@ Python 3.4.2 (default, Oct  8 2014, 13:18:07)
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
-The prompt has changed its appearance to the three greater-than signs `>>>`. The first thing we will learn in Python is to print some text. Type:
+The prompt has changed its appearance to the three greater-than signs `>>>`. You can exit the interactive interpreter by typing `quit()`. The first thing we will learn in Python is to print some text. Type:
 ```Python
 >>> print("Work is for people who don't know how to code")
 ```
-Again, just as in the shell, correct spelling, parentheses, and quotes are important. The `print()` statement represents a function that prints whatever we put in between the parentheses to the screen.
+The `print()` statement represents a function that prints whatever we put in between the parentheses to the screen. As in the Bash shell, you can go back to the previous command by pressing the up arrow key. Again, just as in the shell, correct spelling, parentheses, and quotes are important.
 
 ## Variables
 A very important basic concept in programming is that of a variable. Variables are names that represent some other entities. You can think of a variable as a kind of box that stores data. A simple example would be to store some text in a variable and then print it:
@@ -27,7 +27,8 @@ A very important basic concept in programming is that of a variable. Variables a
 >>> greeting = "Hello!"
 >>> print(greeting)
 ```
-There are several things to discuss here. First, there are some rules that govern variable names. They can only be composed of letters, numbers, and underscores. They cannot start with a number, and cannot be certain words that have special meanings, for example "True" or "False". The recommended practice is to name variables in all lowercase, with words separated by an underscore in multi-word names: "my_variable", "number_of_sequences" etc. In the code above, we put the value `Hello!` into a variable called `greeting` by using the equal `=` sign. This is how values are **_assigned_** to variables.
+There are several things to discuss here. First, there are some rules that govern variable names. They can only be composed of letters, numbers, and underscores. They cannot start with a number, and cannot be certain words that have special meanings, for example "True" or "False". The recommended practice is to name variables in all lowercase, with words separated by an underscore in multi-word names: "my_variable", "number_of_sequences" etc. It is also good to name your variables in a way that conveys information. Names like "X" or "Bb" are not very useful and will make your code more difficult to read for yourself and others.
+In the code above, we put the value `Hello!` into a variable called `greeting` by using the equal `=` sign. This is how values are **_assigned_** to variables.
 
 ## Data types: strings
 Python recognizes various types of data. This is because certain operations make sense for one kind of data but not others. For example, division and substraction are great for numbers but are not applicable to text. As biologists, we are often interested in manipulating data that programmers call **__strings__**. Strings are just sequences of characters and are a good representation for, for example, DNA or amino acid sequence data. You can of strings as plain text. In Python, we let the computer know that the text we are writing is a string by enclosing it in quotes (double or single). In the example above, we used the string `Hello!`. Python has certain functions that can be applied to the most common data types, and we will begin with exploring the ones available for strings.
@@ -115,11 +116,58 @@ We have now converted the output of `count()` into a string by enclosing the cal
 There are 2 occurrences of 'a' in your sequence
 ``` 
 We don't need to repeat the `str()` function here because `my_a_count` is already a string.
-Try writing some code that counts all bases (A,C,G, and T) in the following string: "ATAATTGATAGTATGCTACC".
+Try writing some code that counts all bases (A, C, G, and T) in the following string: "ATAATTGATAGTATGCTACC".
 Your code cold look like this:
 ```Python3
+>>> my_seq = "ATAATTGATAGTATGCTACC"
+>>> my_A_count = my_seq.count("A")
+>>> print(my_A_count)
+>>> my_C_count = my_seq.count("C")
+>>> print(my_C_count)
+>>> my_G_count = my_seq.count("G")
+>>> print(my_G_count)
+>>> my_T_count = my_seq.count("T")
+>>> print(my_T_count)
+```
 
+## Data types: integers and floats
+We alluded to other types above and now we will talk more about the two variables used to handle numbers: integers and floats. The integers represent "whole" numbers, or those without fractional component, while "floats" are used to store numbers with fractional components. We have already met integers, and we saw that the output of the `len()` function is an integer. The number 10 is an example of integer, but 10.0 is a float. Why this difference? This is because fractional numbers represented in computer memory differently from whole numbers. Let's try assigning some integers, floats, and strings to variables:
+```python
+>>> my_num1 = 9
+>>> my_num2 = 3.1415
+>>> my_num3 = "3.1415"
+```
+We can find out what kinds of data a variable holds with the `type()` function:
+```python
+>>> type(my_num1)
+<class 'int'>
+>>> type(my_num2)
+<class 'float'>
+>>> type(my_num3)
+<class 'str'>
+```
+Note that by putting the last number in quotes we made it a string. In general, you don't need to be too concerned with the integer/float difference in much of your Python scripting, but you need to remember it when you try to convert data types:
+```python
+>>> my_num3 = int(my_num3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '3.1415'
+```
+You will get an error if you try to convert a string that looks like a float into an integer, but you can convert it into a float, which then allows you to use the variable as a number (try it).
+You can perform all standard types of mathematical expressions on floats and integers:
+```python
+>>> 4 + 4
+8
+>>> 4 * 4
+16
+>>> 4 - 4
+0
+>>> 4 / 4
+1.0
+>>> 4 ** 4
+256
+>>> my_num1 * my_num2
+28.273500000000002
 ```
 
 
-## Data types: integers and floats
