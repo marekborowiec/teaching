@@ -203,7 +203,7 @@ SyntaxError: can't assign to keyword
 ```
 Boolean values are used to compare statements and will be especially important when we will be talking about flow control, that is  code that can behave differently depending on whether a condition is `True` or `False`. Just as in mathematical expressions, there are special operators that are used to compare values:
 |operator |meaning                  |
-| :------: | :----------------------- |
+| ------ | ----------------------- |
 | ==       | equal to                 |
 | !=       | not equal to             |
 | <        | less than                |
