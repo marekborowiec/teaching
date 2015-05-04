@@ -111,7 +111,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: Can't convert 'int' object to str implicitly
 ```
-What is this about? We know that we can concatenate strings with the plus sign, so why does this not work? The error above tells us where something went wrong `(line 1 of <stdin>)` and what was the error `(TypeError: Can't convert 'int' object to str implicitly)`. The error tells us that there was a "int" object that could not be converted to a `str`, the Python's shorthand for string. Turns out that the output of the `count()` method is not a string but a different data type, an **_integer_** or `int`. We will explain how Python handles number in a separate section, but for now its enough to say that integers are simply "whole" numbers, those without fractional components.
+What is this about? We know that we can concatenate strings with the plus sign, so why does this not work? The error above tells us where something went wrong `(line 1 of <stdin>)` and what was the error `(TypeError: Can't convert 'int' object to str implicitly)`. The error tells us that there was a `int` object that could not be converted to a `str` object, the Python's shorthand for string. Turns out that the output of the `count()` method is not a string but a different data type, an **_integer_** or `int`. We will explain how Python handles number in a separate section, but for now its enough to say that integers are simply "whole" numbers, those without fractional components.
 We can make the above work by converting the integer output of `count()` into a string. This is done using the `str()` function:
 ```python
 >>> print("There are " +  str(my_sequence.count('a')) + " occurrences of 'a' in your sequence")
@@ -260,7 +260,17 @@ You can access certain characters or subsets of a string using Python's **_index
 >>> my_seq[5:7]
 'TG'
 ```
-As you can see, the indexing system in Python works somewhat different from our concept of what would be the ordering of elements in a set: `my_seq[0]` means "**first** character of my_seq", `my_seq[0:5]` means "characters first to **fourth** (5 - 1) of my_seq", and `my_seq[5:]` means "characters **fifth** to the end of my_seq". In other words, indexing in Python starts with zero and is first-inclusive but last-exclusive. This should help visualize how elements of a string are counted:
+As you can see, the indexing system in Python works somewhat different from our concept of what would be the ordering of elements in a set: 
+
+`my_seq[0]` means "**first** character of `my_seq`"
+
+`my_seq[0:5]` means "characters first to **fourth** (5 - 1) of `my_seq`"
+
+`my_seq[5:]` means "characters **fifth** to the end of `my_seq`"
+
+`my_seq[5:7]` means "characters fifth and **sixth** (7 - 1) of `my_seq`"
+
+In other words, indexing in Python starts with zero and is first-inclusive but last-exclusive. Study those rules because they apply to indexing other data types as well. This should help visualize how elements of a string are counted:
 ```
 "A  T  A  A  T  T  G  A  T  A  G  T  A  T  G  C  T  A  C  C"
  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19
