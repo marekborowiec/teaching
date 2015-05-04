@@ -262,6 +262,6 @@ You can access certain characters or subsets of a string using Python's **_index
 ```
 As you can see, the indexing system in Python works somewhat different from our concept of what would be the ordering of elements in a set: `my_seq[0]` means "**first** character of my_seq", `my_seq[0:5]` means "characters first to **fourth** (5 - 1) of my_seq", and `my_seq[5:]` means "characters **fifth** to the end of my_seq". In other words, indexing in Python starts with zero and is first-inclusive but last-exclusive. This should help visualize how elements of a string are counted:
 ```
-**"A  T  A  A  T  T  G  A  T  A  G  T  A  T  G  C  T  A  C  C"**
+"A  T  A  A  T  T  G  A  T  A  G  T  A  T  G  C  T  A  C  C"
  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19
 ```
