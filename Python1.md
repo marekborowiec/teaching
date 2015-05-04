@@ -17,9 +17,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 The prompt has changed its appearance to the three greater-than signs `>>>`. You can exit the interactive interpreter by typing `quit()`. The first thing we will learn in Python is to print some text. Type:
 ```Python
+>>> # this is a conceited remark
 >>> print("Work is for people who don't know how to code")
 ```
-The `print()` statement represents a function that prints whatever we put in between the parentheses to the screen. As in the Bash shell, you can go back to the previous command by pressing the up arrow key. Again, just as in the shell, correct spelling, parentheses, and quotes are important.
+Anything that starts with `#` is ignored and acts as a comment. Comments are an important in scripting, as they can help the future you and others to understand your code. The `print()` statement represents a function that prints whatever we put in between the parentheses to the screen. As in the Bash shell, you can go back to the previous command by pressing the up arrow key. Again, just as in the shell, correct spelling, parentheses, and quotes are important.
 
 ## Variables
 A very important basic concept in programming is that of a variable. Variables are names that represent some other entities. You can think of a variable as a kind of box that stores data. A simple example would be to store some text in a variable and then print it:
