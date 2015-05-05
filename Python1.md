@@ -273,6 +273,7 @@ As you can see, the indexing system in Python works somewhat different from our 
 `my_seq[5:7]` means "characters sixth and **seventh** of `my_seq` (not eigth, which is the character at index 7)"
 
 In other words, indexing in Python starts with zero and is first-inclusive but last-exclusive. Study those rules because they apply to indexing other data types as well. This should help visualize how elements of a string are counted:
+
 ```
 "A  T  A  A  T  T  G  A  T  A  G  T  A  T  G  C  T  A  C  C"
  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19
