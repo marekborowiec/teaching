@@ -264,11 +264,13 @@ As you can see, the indexing system in Python works somewhat different from our 
 
 `my_seq[0]` means "**first** character of `my_seq`"
 
-`my_seq[0:5]` means "characters first to **fourth** (5 - 1) of `my_seq`"
+`my_seq[0:5]` means "characters first to **fifth** (not sixth, which is the character at index 5) of `my_seq`"
 
-`my_seq[5:]` means "characters **fifth** to the end of `my_seq`"
+`my_seq[:5]` means the same as above, "characters first to fifth of `my_seq`"
 
-`my_seq[5:7]` means "characters fifth and **sixth** (7 - 1) of `my_seq`"
+`my_seq[5:]` means "characters **sixth** to the end of `my_seq` (from the character at index 5)"
+
+`my_seq[5:7]` means "characters sixth and **seventh** of `my_seq` (not eigth, which is the character at index 7)"
 
 In other words, indexing in Python starts with zero and is first-inclusive but last-exclusive. Study those rules because they apply to indexing other data types as well. This should help visualize how elements of a string are counted:
 ```
