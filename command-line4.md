@@ -86,3 +86,5 @@ sed -r 's/(PSW( |C |C #|C#)?|P\.(S\. )?Ward Acc\. ?)([0-9]+)(\S+)?/PSW\4\5/g' an
 Note that we are only interested in the digit portion of the collection code, which is enclosed in fourth and fifth open parentheses above. We therefore substitute all matching pattern with `PSW\4\5`. We make sure the output is what we want by piping to `grep`. `sed` will replace any text that was matched  by the pattern, for example 'PSWC# 8213-11', and substitute it  with 'PSW' immediately followed by whatever was matched by `\4` and `\5`, in this case '8213' and '-11', for the final result 'PSW8213-11'.
 If you are confused about how backreferences are counted, take a look at this representation of backreferences in our pattern:
 ![backreferences](/images/backreferences.jpg)
+
+Remember that at the point of running our `sed -r` command nothing has been changed in the original file: everything is being executed on the pattern buffer. We can make in-place change in the file by invoking `sed -ri` (best done on a copy of the file) or we can redirect the output of `sed -r` to a new file without piping to `grep`.
