@@ -5,8 +5,11 @@ In `sed` the input is not directly modified. Instead, it is first placed in a sp
 In summary,  the `sed` workflow for each line looks like this:
 
 1) Read a line from stdin
+
 2) Place it in pattern buffer
+
 3) Modify pattern buffer accordingly
+
 4) Print pattern buffer to stdout
 
 There is also the 'hold buffer' that keeps the data after the command was executed and its contents can be further manipulated for more complex operations, but we will not use it today.
