@@ -237,7 +237,7 @@ There are a couple more things about formatting strings that will be useful. Jus
 This is a multiline
 string.
 ```
-As you may remember from the command line tutorials, the `\n` character signifies newline. Another way to specify multiline strings is just enclose them in three quote signs `"`:
+As you may remember from the command line tutorials, the `\n` character signifies newline. Another way to specify multiline strings is just enclose them in three quote signs `"""` or `'''`:
 ```python
 >>> print("""This is a multiline
 ... string""")
