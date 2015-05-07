@@ -14,7 +14,7 @@ In summary,  the `sed` workflow for each line looks like this:
 
 There is also the 'hold buffer' that keeps the data after the command was executed and its contents can be further manipulated for more complex operations, but we will not use it today.
 We will focus on the pattern buffer and text substitution. `sed` is a powerful command and if you are interested in learning more, there some good resources available on-line: a `sed` [tutorial](http://www.tutorialspoint.com/sed/index.htm) and a [series of articles](http://www.thegeekstuff.com/category/sed/page/2/) on `sed` (click on 'NEXT ENTRIES' to see more articles).
-## Addresses and patterns; printing in `sed`
+### Addresses and patterns; printing in `sed`
 Let’s try printing some file contents using `sed`.
 ```shell
 sed -n '1234'p ~/Sandbox/ants.txt
