@@ -1,5 +1,6 @@
 # Project 1: command line and regex
-This project will make you put the skills you (hopefully) gained over the last three weeks to use.
+This project will make you put the skills you gained over in the command line tutorial sections 1 through 3.
+
 You will need the `ants.txt` file in your `Sandbox` folder. If you cannot find it or if you have accidentally deleted it, you can find links to them in the README file.
 
 A common task when working with spreadsheets from public data bases is to make them conform to a certain format or standardize some data present within it.
