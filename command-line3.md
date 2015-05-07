@@ -188,3 +188,5 @@ In text files, each line is separated from the next using the so-called newline 
 
 The way that `grep` processes text is not compatible with matching newline characters, but you can do this in TextWrangler or EditPad. I encourage you to install those text editors and try playing around with regular expressions in your own text.
 
+After this tutorial you should be ready to work on the command line project.
+
