@@ -136,7 +136,11 @@ Another command useful for looking at files, and especially table-like data, is 
 cut -f 4 ants.txt | tail
 ```
 You can specify multiple columns, ranges, and the type of separator by which the columns are counted. See the manual or help for `cut` and the cheat sheet for this section for more options.
+
 ![standard streams](/images/stdstreams.png)
-Interactions between standard input (stdin; in this case text entered on your keyboard) to a program (command), standard output (stdout), and standard error (stderr).
+
+Image1. Interactions between standard input (stdin; in this case text entered on your keyboard) to a program (command), standard output (stdout), and standard error (stderr).
+
 ![pipelines](/images/pipeline.png)
-Interactions in pipelines, where stdout of one program becomes stdin of another program through use of the pipe, to be eventually directed from Program 3 to the screen display.
+
+Image 2. Interactions in pipelines, where stdout of one program becomes stdin of another program through use of the pipe, to be eventually directed from Program 3 to the screen display.
