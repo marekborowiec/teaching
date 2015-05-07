@@ -6,8 +6,8 @@ If you erased all of the folders at the end of the last tutorial, let’s go bac
 mkdir -p Directory{11..15}/Subdir{A..C}
 touch Directory{11..15}/Subdir{A..C}/file-{1..3}.txt
 touch Directory{11..15}/Subdir{A..C}/image-{1..3}.jpg
-### `find` (search for files in a directory hierarchy)
 ```
+### `find` (search for files in a directory hierarchy)
 The `find` command is a rather sophisticated tool, but its basic functionality is to, unsurprisingly, find things. The interface of `find` is more complicated than that of the other commands we’ve seen so far and is a good introduction to running more complex programs. There are three kinds of arguments that you may want to supply to find:  (1) where to look for something, (2) what to look for, and (3) what to do. All are optional.  From  `Sandbox`, try `find` by itself:
 ```shell
 find
@@ -54,7 +54,7 @@ Imagine that you have several huge text files that you want to take a peek at. I
 ```shell
 less ~/Sandbox/ants.txt
 ```
-### `head` and `tail` (print lines from a file)
+### `head` and `tail` (print lines from file)
 These two handy commands let you take a look at the beginning or ending of a file. This is useful if you want to just get a sense of what’s in a text file. By default `head` and `tail` will print the first or last, respectively, ten lines. This can be changed by specifying a number preceded by a dash. The other argument will be the name of the file you want to look at:
 ```shell
 head ~/Sandbox/ants.txt
