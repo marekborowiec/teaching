@@ -56,14 +56,14 @@ Going up a level:
 ```shell
 cd .. 
 ```
-`cd` followed by two full stops or dots) moves you up a level in the directory tree, that is to your parent directory.
+`cd` followed by two full stops or dots) moves you up a level in the directory tree, that is to your **_parent directory_**.
 
 You can combine the two dots with a directory name you know is present one level up from your working directory. Try:
 ```shell
 cd Sandbox
 cd ../Code
 ```
-The arguments to cd specified above are examples of relative paths. `cd` in the examples above takes only one argument, but other commands often take more arguments. Arguments are separated by a space, like this: `command Argument1 Argument2`. 
+The **_arguments_** to cd specified above are examples of relative paths. `cd` in the examples above takes only one argument, but other commands often take more arguments. Arguments are separated by a space, like this: `command Argument1 Argument2`. 
 Another symbol that `cd` recognizes is the period `.`. It means ‘the current directory’ and is useful in moving down more than one level in the directory tree. `cd Sandbox` and  `cd ./Sandbox` mean the same thing: move to the `Sandbox` directory, which is present in your working directory. You can also give a forward slash following the directory name, as in `cd ./Sandbox/`, but you don’t have to. `cd /Sandbox` won’t work, however:
 ```shell
 cd /Sandbox
@@ -100,12 +100,12 @@ mkdir Directory2 Directory3
 ls
 ```
 ### `touch` (make an empty file; change time stamp)
-`touch` is very similar in its functionality to `mkdir` but it allows you to create empty files (touch is actually most commonly used to changing the timestamp of a file). 
+`touch` is very similar in its functionality to `mkdir` but it allows you to create empty files (touch is actually most commonly used to changing the [timestamp](http://en.wikipedia.org/wiki/Timestamp) of a file). 
 ```shell
 touch file1.txt file2.txt image1.jpg image2.jpg
 ```
 ### Brace expansion
-So far this is all basic and may seem tedious compared to the graphical user interface, especially to a newcomer to the command line. In order to appreciate some of the power of the shell, let’s learn about brace expansion. Brace expansion allows you to easily work with many directories and files.
+So far this is all basic and may seem tedious compared to the graphical user interface, especially to a newcomer to the command line. In order to appreciate some of the power of the shell, let’s learn about [brace expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html). Brace expansion allows you to easily work with many directories and files.
 ```shell
 mkdir Directory{4..10}
 ls
@@ -120,7 +120,7 @@ cd ..
 In the directories 1 through 3 you should see three directories named `SubdirA` through `SubdirC`.
  
 ### Tab completion
-Typing `Directory1/SubdirA` every time you want to move into that directory or, worse, jumping even more levels in the directory tree is tedious and error-prone. Fortunately command line interfaces have the tab completion feature. In the `Sandbox` directory, try typing `cd D`, then press the `Tab` key. The command line should expand to `cd Directory`. Now you just need to add number to the end and `/`. Now press `Tab` once again. After expanding to `Subdir` try hitting `Tab` twice more. You should see the available options:
+Typing `Directory1/SubdirA` every time you want to move into that directory or, worse, jumping even more levels in the directory tree is tedious and error-prone. Fortunately command line interfaces have the [tab completion](http://www.howtogeek.com/195207/use-tab-completion-to-type-commands-faster-on-any-operating-system/) feature. In the `Sandbox` directory, try typing `cd D`, then press the `Tab` key. The command line should expand to `cd Directory`. Now you just need to add number to the end and `/`. Now press `Tab` once again. After expanding to `Subdir` try hitting `Tab` twice more. You should see the available options:
 ```shell
 SubdirA/ SubdirB/ SubdirC/
 cd Directory1/SubdirA/
@@ -175,16 +175,16 @@ This command does not work with directories, unless you specify `-r` (recursive)
 ```shell
 cp -r Directory15 Directory15-backup
 ```
-You can also use cp to copy from one path (source) to another (destination). In such cases you may wish to leave the name of the copied file as it was. Remember that your working directory can be specified with a period:
+You can also use cp to copy from one path (**_source_**) to another (**_destination_**). In such cases you may wish to leave the name of the copied file as it was. Remember that your working directory can be specified with a period:
 ```shell
 cp Directory15/SubdirB/image-3.jpg .
 ```
-Be careful when copying files! If a file with the same name as the file being copied already exists in your destination, `cp` will just substitute (overwrite) it without any notification. There is no undo feature in the shell, so the overwritten file will be lost forever. You can add `-i` as an option to `cp` for an interactive mode. It will then ask you if you are about to overwrite a file:
+Be careful when copying files! If a file with the same name as the file being copied already exists in your destination, `cp` will just substitute (**_overwrite_**) it without any notification. There is no undo feature in the shell, so the overwritten file will be lost forever. You can add `-i` as an option to `cp` for an interactive mode. It will then ask you if you are about to overwrite a file:
 ```shell
 cp -i Directory13/SubdirC/image-3.jpg .
 cp: overwrite './image-3.jpg'?
 ```
-The prompt will then wait for you type `y` for yes or `n` for no and press Return. 
+The prompt will then wait for you type `y` for yes or `n` for no and press `Return`. 
 Try backing up `Sandbox` files `ants.txt` and `matrix-5214genes.phy` by copying them in a directory outside `Sandbox`.
 ### `mv` (move) – moving and renaming files and directories
 Moving of files without copying them is done by `mv`, which can also be used to rename them. It works very similarly to `cp`. You supply it with your source and destination. From `Sandbox/` type:
@@ -211,7 +211,7 @@ rm -ri Directory3
 ```
 The above will allow you to remove a directory with all its contents, at the same time asking for confirmation before execution.
 ### Wildcards
-Another powerful feature of the shell is its ability to work with multiple files in a single command. Say you want to copy (or move or remove, etc.) all text files from one directory to another. If all text files follow a simple pattern, for example end in `.txt` (the so-called extension; not to be confused with expansion below), the simplest way to do this is by using the `*` asterisk wildcard.
+Another powerful feature of the shell is its ability to work with multiple files in a single command. Say you want to copy (or move or remove, etc.) all text files from one directory to another. If all text files follow a simple pattern, for example end in `.txt` (the so-called **_extension_**; not to be confused with **_expansion_** below), the simplest way to do this is by using the `*` asterisk wildcard.
 First, let’s list all text files in one of the directories we created earlier in `Sandbox`:
 ```shell
 ls -1 Directory11/SubdirB/*txt
