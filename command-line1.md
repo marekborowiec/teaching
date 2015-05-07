@@ -117,7 +117,7 @@ cd Directory1/
 ls
 cd ..
 ```
-In the directories 1 through 3 you should see three directories named SubdirA through SubdirC.
+In the directories 1 through 3 you should see three directories named `SubdirA` through `SubdirC`.
  
 ### Tab completion
 Typing `Directory1/SubdirA` every time you want to move into that directory or, worse, jumping even more levels in the directory tree is tedious and error-prone. Fortunately command line interfaces have the tab completion feature. In the `Sandbox` directory, try typing `cd D`, then press the `Tab` key. The command line should expand to `cd Directory`. Now you just need to add number to the end and `/`. Now press `Tab` once again. After expanding to `Subdir` try hitting `Tab` twice more. You should see the available options:
