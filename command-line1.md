@@ -164,7 +164,8 @@ If you were able to figure this out and typed two touch on two separate lines, y
 Moving up and down one line at a time is inefficient if you are looking for something you typed a long time ago. Fortunately, you can search the command history. Press Ctrl+R to access the search. Now you can type text that you wish to find. We can look for the mkdir calls:
 ```shell
 (reverse-i-search)`mkdir': mkdir -p Directory{11..15}/Subdir{A..C}
-```If there is more than one match for a command containing mkdir, you can scroll through them by hitting `Ctrl+R`  until you find the command you want or by refining the search by typing some additional text, such as option to the command, brace expansion etc. 
+```
+If there is more than one match for a command containing mkdir, you can scroll through them by hitting `Ctrl+R`  until you find the command you want or by refining the search by typing some additional text, such as option to the command, brace expansion etc. 
 ### `cp`  (copy) – copying files and directories
 Copying files in the command line is easy. You type `cp`, followed by name of the file you want to copy (remember you can use tab completion!), followed by a name of the file that will be created as a copy:
 ```shell
@@ -177,7 +178,8 @@ cp -r Directory15 Directory15-backup
 You can also use cp to copy from one path (source) to another (destination). In such cases you may wish to leave the name of the copied file as it was. Remember that your working directory can be specified as a single dot:
 ```shell
 cp Directory15/SubdirB/image-3.jpg .
-```Be careful when copying files! If a file with the same name as the file being copied already exists in your destination, `cp` will just substitute (overwrite) it without any notification. There is no undo feature in the shell, so the overwritten file will be lost forever. You can add `-i` as an option to `cp` for an interactive mode. It will then ask you if you are about to overwrite a file:
+```
+Be careful when copying files! If a file with the same name as the file being copied already exists in your destination, `cp` will just substitute (overwrite) it without any notification. There is no undo feature in the shell, so the overwritten file will be lost forever. You can add `-i` as an option to `cp` for an interactive mode. It will then ask you if you are about to overwrite a file:
 ```shell
 cp -i Directory13/SubdirC/image-3.jpg .
 cp: overwrite './image-3.jpg'?
