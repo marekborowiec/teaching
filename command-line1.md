@@ -45,9 +45,9 @@ Typing ls and other commands calls a computer program, a so-called executable fi
 pwd
 /home/compbiol
 ```
-This is another useful command to get oriented. It prints your path from the root directory. If you remember the distinction between home and root directories, the prompt shows you the path starting at your home directory, while pwd prints the complete path starting at the root directory. Paths starting at the root or home are also called **_absolute_** paths.
+This is another useful command to get oriented. It prints your path from the root directory. If you remember the distinction between home and root directories, the prompt shows you the path starting at your home directory, while `pwd` prints the complete path starting at the root directory. Paths starting at the root or home are also called **_absolute_** paths.
 ### `cd` (change directory) – move around
-This command allows you to move to a directory different from your current working directory. You type cd followed by a directory name you want to go into. Remember absolute paths? There is also the concept of **_relative paths_**. It just means a path that is relative to where you are right now. Try typing cd followed by space, followed by Sandbox: 
+This command allows you to move to a directory different from your current working directory. You type `cd` followed by a directory name you want to go into. Remember absolute paths? There is also the concept of **_relative paths_**. It just means a path that is relative to where you are right now. Try typing cd followed by space, followed by Sandbox: 
 ```shell
 cd Sandbox
 ```
@@ -69,42 +69,42 @@ Another symbol that `cd` recognizes is the period `.`. It means ‘the current d
 cd /Sandbox
 bash: cd: /Sandbox: No such file or directory
 ```
-Why? Recall that root directory is specified by a forward slash. This command tells the shell to move to the Sandbox directory in the root directory, but there is no such directory.
+Why? Recall that root directory is specified by a forward slash. This command tells the shell to move to the `Sandbox` directory in the root directory, but there is no such directory.
 We can go to the root directory and see what’s in there:
 ```shell
 cd /
 ls
 ```
 There are several folders, including `bin`, which contains most of the executable programs present on the computer, such as bash itself.
-To go back to our home directory from here or anywhere else on the system, we have three options. Typing `cd` by itself takes us to the home directory. `cd ~` works as well.
+To go back to our home directory from here or anywhere else on the system, we have three options. Typing `cd` by itself and hitting `Return` takes us to the home directory. `cd ~` works as well.
 We could also specify the absolute or relative paths, if we remember them (in the case of moving out of the root the relative path is the same as the absolute path):
 ```shell
 cd /home/compbiol
 ```
-Or we can go back to the last directory we visited, which in this case is home:
+This is the absolute path to our home directory, called `compbiol` (which is different from the more inclusive `home`!). We can also go back to the last directory we visited, which in this case is home:
 ```
 cd -
 ```
 ## Creating directories and files, getting help
 ### `mkdir` (make directories)
-Let’s make a new directory. From Sandbox in your home directory, type:
+Let’s make a new directory. From `Sandbox` in your home directory, type:
 ```shell
 cd ~/Sandbox
 mkdir Directory1
 ls
 ```
-Now you should see a new directory named Directory1.
+Now you should see a new directory named `Directory1`.
 You can make multiple directories in one command line:
 ```shell
 mkdir Directory2 Directory3
 ls
 ```
 ### `touch` (make an empty file; change time stamp)
-`touch` is very similar in its functionality to mkdir but it allows you to create empty files (touch is actually most commonly used to changing the timestamp of a file). 
+`touch` is very similar in its functionality to `mkdir` but it allows you to create empty files (touch is actually most commonly used to changing the timestamp of a file). 
 ```shell
 touch file1.txt file2.txt image1.jpg image2.jpg
 ```
-### brace expansion
+### Brace expansion
 So far this is all basic and may seem tedious compared to the graphical user interface, especially to a newcomer to the command line. In order to appreciate some of the power of the shell, let’s learn about brace expansion. Brace expansion allows you to easily work with many directories and files.
 ```shell
 mkdir Directory{4..10}
@@ -117,16 +117,16 @@ cd Directory1/
 ls
 cd ..
 ```
-In Directories 1 through 3 you should see three directories named SubdirA through SubdirC.
+In the directories 1 through 3 you should see three directories named SubdirA through SubdirC.
  
-### tab completion
-Typing Directory1/SubdirA every time you want to move into that directory or, worse, jumping even more levels in the directory tree is tedious and error-prone. Fortunately command line interfaces have a tab completion feature. In the Sandbox directory, try typing `cd D`, then press the `Tab` key. The command line should expand to `cd Directory`. Now you just need to add number to the end and `/`. Now press Tab once again. After expanding to Subdir try pressing `Tab` twice more. You should see the available options:
+### Tab completion
+Typing `Directory1/SubdirA` every time you want to move into that directory or, worse, jumping even more levels in the directory tree is tedious and error-prone. Fortunately command line interfaces have the tab completion feature. In the `Sandbox` directory, try typing `cd D`, then press the `Tab` key. The command line should expand to `cd Directory`. Now you just need to add number to the end and `/`. Now press `Tab` once again. After expanding to `Subdir` try hitting `Tab` twice more. You should see the available options:
 ```shell
 SubdirA/ SubdirB/ SubdirC/
 cd Directory1/SubdirA/
 ```
 Tab completion also works for command names. Try typing `mk`, followed by pressing `Tab` key twice and you should see every executable whose name starts with `mk`.
-Creating subdirectories works only if you already have parent directories created. From the Sandbox directory try:
+Creating subdirectories works only if you already have parent directories created. From the `Sandbox` directory try:
 ```shell
 mkdir Directory{11..15}/Subdir{A..C}
 ```
@@ -142,30 +142,30 @@ Type:
 ```shell
 man mkdir
 ```
-The program man allows you to access manual pages for programs that support it. Practically all common commands will have a manual, although sometimes its contents can be daunting for new users of the command line. After opening mkdir’s manual you should be able to scroll line by line with `↑` and `↓` arrow keys, scroll page down with the `Space` or `PgDn` keys, and scroll page up with `PgUp`. You exit the manual pages by typing `q`.
-From the manual pages for mkdir we learned that it supports a variety of options. Options are most commonly specified by preceding a single letter with a single dash, for example `-v`, or by multiple letters preceded by double dash. An example of the latter is `--help`. Try typing `mkdir`, followed by a space, followed by two dashes and 'help': 
+The program man allows you to access manual pages for programs that support it. Practically all common commands will have a manual, although sometimes its contents can be daunting for the new users of the command line. After opening mkdir’s manual you should be able to scroll line by line with `↑` and `↓` arrow keys, scroll page down with the `Space` or `PgDn` keys, and scroll page up with `PgUp`. You exit the manual pages by typing `q`.
+From the manual pages for `mkdir` we learned that it supports a variety of options. Options are most commonly specified by preceding a single letter with a single dash, for example `-v`, or by multiple letters preceded by double dash. An example of the latter is `--help`. Try typing `mkdir`, followed by a space, followed by two dashes and 'help': 
 ```shell
 mkdir --help 
 ```
-Help is an option available for many commands and its output is often more compact than manual pages. It should also automatically return to the prompt after printing out help contents. If help’s output goes beyond your terminal window screen, you can navigate up your terminal window by using the scroll bar on the right or holding down `Ctrl+Shift` keys together with `↑` and `↓` arrow keys.
+Help is an option available for many commands and its output is often more compact than manual pages. It should also automatically return to the prompt after printing out help contents. If help’s output goes beyond your terminal window screen, you can navigate up your terminal window by using the scroll bar on the right or holding down `Ctrl + Shift` keys together with `↑` and `↓` arrow keys.
 After looking at the available options to `mkdir`, we see that `-p, --parents` states 'no error if existing, make parent directories as needed'. This sounds like the option we want. You can specify it as a single dash immediately followed by `p` or two dashes and `parents`.
-Now you have all the knowledge needed to create files within subdirectories within parent directories. This would be very difficult or time-consuming using graphical user interface. In your Sandbox directory, try to create new directories, named ‘Directory11’ to ‘Directory15’, each with three directories within them, named ‘SubdirA’ through ‘SubdirC’. Then create three empty text files called ‘file-1.txt’ through ‘file-3.txt’ and three empty images ‘image-1.jpg’ through ‘image-3,jpg’ in each Subdir directory. You should be able to do this on two or three command lines, combining option to `mkdir`, brace expansion, and `touch`.
-Your commands should look like this. Each touch command here has a single argument:
+Now you have all the knowledge needed to create files within subdirectories within parent directories. This would be very difficult or time-consuming using graphical user interface. In your `Sandbox` directory, try to create new directories, named `Directory11` to `Directory15`, each with three directories within them, named `SubdirA` through `SubdirC`. Then create three empty text files called `file-1.txt` through `file-3.txt` and three empty images `image-1.jpg` through `image-3,jpg` in each Subdir directory. You should be able to do this on two or three command lines, combining option to `mkdir`, brace expansion, and `touch`.
+Your commands should look like this. Each `touch` command here has a single argument:
 ```shell
 mkdir -p Directory{11..15}/Subdir{A..C}
 touch Directory{11..15}/Subdir{A..C}/file-{1..3}.txt
 touch Directory{11..15}/Subdir{A..C}/image-{1..3}.jpg
 ```
-## command history and more line navigation
-If you were able to figure this out and typed two touch on two separate lines, you probably noticed that they were very similar, differing in only a few characters. A useful trick to save you time is accessing recently used commands by hitting the ↑and ↓ arrows while at the prompt to scroll up and down history. Once you have the command you want to repeat or modify, you can move around that line and modify its text as usual. Some useful keyboard shortcuts to move along the line include:
-`Ctrl+A` – takes you to the beginning of the line
-`Ctrl+E` – takes you to the end of the line
-`Ctrl+→` , `Ctrl+←` –   jump left or right one word at a time
-Moving up and down one line at a time is inefficient if you are looking for something you typed a long time ago. Fortunately, you can search the command history. Press Ctrl+R to access the search. Now you can type text that you wish to find. We can look for the mkdir calls:
+## Command history and more line navigation
+If you were able to figure this out and typed two `touch` on two separate lines, you probably noticed that they were very similar, differing in only a few characters. A useful trick to save you time is accessing recently used commands by hitting the `↑` and `↓` arrows while at the prompt to scroll up and down history. Once you have the command you want to repeat or modify, you can move around that line and modify its text as usual. Some useful keyboard shortcuts to move along the line include:
+`Ctrl + A` – takes you to the beginning of the line
+`Ctrl + E` – takes you to the end of the line
+`Ctrl + →` , `Ctrl + ←` –   jump left or right one word at a time
+Moving up and down one line at a time is inefficient if you are looking for something you typed a long time ago. Fortunately, you can search the command history. Press `Ctrl + R` to access the search. Now you can type text that you wish to find. We can look for the `mkdir` calls:
 ```shell
 (reverse-i-search)`mkdir': mkdir -p Directory{11..15}/Subdir{A..C}
 ```
-If there is more than one match for a command containing mkdir, you can scroll through them by hitting `Ctrl+R`  until you find the command you want or by refining the search by typing some additional text, such as option to the command, brace expansion etc. 
+If there is more than one match for a command containing `mkdir`, you can scroll through them by hitting `Ctrl + R`  until you find the command you want or by refining the search by typing some additional text, such as option to the command, brace expansion etc.
 ### `cp`  (copy) – copying files and directories
 Copying files in the command line is easy. You type `cp`, followed by name of the file you want to copy (remember you can use tab completion!), followed by a name of the file that will be created as a copy:
 ```shell
@@ -175,7 +175,7 @@ This command does not work with directories, unless you specify `-r` (recursive)
 ```shell
 cp -r Directory15 Directory15-backup
 ```
-You can also use cp to copy from one path (source) to another (destination). In such cases you may wish to leave the name of the copied file as it was. Remember that your working directory can be specified as a single dot:
+You can also use cp to copy from one path (source) to another (destination). In such cases you may wish to leave the name of the copied file as it was. Remember that your working directory can be specified with a period:
 ```shell
 cp Directory15/SubdirB/image-3.jpg .
 ```
@@ -185,14 +185,14 @@ cp -i Directory13/SubdirC/image-3.jpg .
 cp: overwrite './image-3.jpg'?
 ```
 The prompt will then wait for you type `y` for yes or `n` for no and press Return. 
-Try backing up Sandbox files ‘ants.txt’ and ‘matrix-5214genes.phy’ by copying them in a directory outside Sandbox.
+Try backing up `Sandbox` files `ants.txt` and `matrix-5214genes.phy` by copying them in a directory outside `Sandbox`.
 ### `mv` (move) – moving and renaming files and directories
 Moving of files without copying them is done by `mv`, which can also be used to rename them. It works very similarly to `cp`. You supply it with your source and destination. From `Sandbox/` type:
 ```shell
 mv ants.txt Directory1
 mv Directory1/ants.txt .
 ```
-Above we copied the file ‘ants.txt’ to Directory1/ and back to Sandbox/. If you want to rename a file, just give it the same destination with an alternative name as the second argument (i.e. the new name):
+Above we copied the file `ants.txt` to `Directory1/` and back to `Sandbox/`. If you want to rename a file, just give it the same destination with an alternative name as the second argument (i.e. the new name):
 ```shell
 cp ants.txt Directory1
 mv Directory1/ants.txt Directory1/formicidae.txt
@@ -204,19 +204,19 @@ The command `rm` is used to remove files. It’s not like moving things to ‘tr
 ```shell
 rm -r Directory2
 ```
-This option is potentially very dangerous, but running it with `-i` in the interactive mode (recall we’ve seen this in cp and mv) will prompt you before removing each element. This obviously wouldn’t be desirable if you are trying to erase many hundreds of files.
+This option is potentially very dangerous, but running it with `-i` in the interactive mode (recall we’ve seen this in `cp` and `mv`) will prompt you before removing each element. This obviously wouldn’t be desirable if you are trying to erase many hundreds of files.
 Single-character options can usually be combined without the need to add another dash:
 ```shell
 rm -ri Directory3
 ```
-The above will allow you to remove a directory with all its contents, at the same asking for confirmation before execution.
-### wildcards
+The above will allow you to remove a directory with all its contents, at the same time asking for confirmation before execution.
+### Wildcards
 Another powerful feature of the shell is its ability to work with multiple files in a single command. Say you want to copy (or move or remove, etc.) all text files from one directory to another. If all text files follow a simple pattern, for example end in `.txt` (the so-called extension; not to be confused with expansion below), the simplest way to do this is by using the `*` asterisk wildcard.
-First, let’s list all text files in one of the directories we created earlier in Sandbox:
+First, let’s list all text files in one of the directories we created earlier in `Sandbox`:
 ```shell
 ls -1 Directory11/SubdirB/*txt
 ```
-Supplying `-1` as an option to ls gives each element on one line. You should be able to see three text files (along with their relative paths) which we created earlier. Asterisk in this case means ‘any character matched zero or more times’ and we say that it expands to those characters before executing the command. This is the same concept as in brace expansion we’ve seen earlier. In this case `*` expands to file-1., file-2., etc. Note that this didn’t list the .jpg images we created earlier. Since asterisk expands to any character, using it by itself will list everything in a directory:
+Supplying `-1` as an option to ls gives each element on one line. You should be able to see three text files (along with their relative paths) which we created earlier. Asterisk in this case means ‘any character matched zero or more times’ and we say that it expands to those characters before executing the command. This is the same concept as in brace expansion we’ve seen earlier. In this case `*` expands to `file-1.`, `file-2.`, etc. Note that this didn’t list the `.jpg` images we created earlier. Since asterisk expands to any character, using it by itself will list everything in a directory:
 ```shell
 ls -1 Directory11/SubdirB/*
 ```
@@ -225,5 +225,5 @@ You can use the same trick to copy these files to your working directory (signif
 cp -i Directory11/SubdirB/*txt .
 ```
 `cp -i` here will notify you if you are about to overwrite some files in your working directory.
-Try listing, copying, and moving some ‘.jpg’ files around using the asterisk wildcard. 
-You can also remove all those folders and files we created in Sandbox throughout this tutorial, but try to leave files ‘ants.txt’ and ‘matrix-5214genes.phy’. If you haven’t already, you can back them up in a directory outside Sandbox.
+Try listing, copying, and moving some `.jpg` files around using the asterisk wildcard. 
+You can also remove all those folders and files we created in `Sandbox` throughout this tutorial, but try to leave files `ants.txt` and `matrix-5214genes.phy`. If you haven’t already, you can back them up in a directory outside `Sandbox`.
