@@ -149,7 +149,7 @@ echo '123!@#"* one_two THREE' | grep -E '3![a-z]*'
 ### A side note on globbing vs. regex
 It is important to remember that regular expressions are distinct from pattern matching (also known as **_globbing_**) when looking for filenames in the shell. For example, you might have noticed that the meaning of asterisk is different: when expanding filenames in the shell it means 'any character any number of times', whereas in regular expressions it is meaningless when used by itself and has to be preceded by an item (character or character class) to be matched. Other metacharacters used by the command line, such as the pipe `|`, also have different meanings in regex.
 ### Alternation
-Character sets allow you to match alternative characters. With **_alternation_** you can match any number of alternative characters or even text patterns. You can separate them by the familiar vertical bar or pipe ‘|’. If you want your alternatives to be embedded within a larger expression, you also need to define their scope by parentheses. You can specify any number of alternative matches:
+Character sets allow you to match alternative characters. With **_alternation_** you can match any number of alternative characters or even text patterns. You can separate them by the familiar vertical bar or pipe `|`. If you want your alternatives to be embedded within a larger expression, you also need to define their scope by parentheses. You can specify any number of alternative matches:
 ```shell
 grep -E 'mol(d|t|e)' /usr/share/dict/words
 ```
