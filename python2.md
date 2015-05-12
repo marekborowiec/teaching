@@ -1,13 +1,13 @@
 # PYTHON PROGRAMMING PART 2
 
 ## Lists
-Last week we talked about data types in Python and discussed strings, integers, floats, and Booleans. Today we will start off with lists. Lists simply store multiple objects of other kinds of data. Just as we can assign values to strings by putting them in quotes, we can assign values to a list by putting them inside square brackets:
+Last week we talked about data types in Python and discussed strings, integers, floats, and Booleans. Today we will start off with lists. Lists simply store multiple objects. Just as we can assign values to strings by putting them in quotes, we can assign values to a list by putting them inside square brackets:
 ```python
 >>> list1 = ['hello!']
 >>> print(list1)
 ['hello!']
 ```
-We can put zero, (empty `[]`), one or multiple values in a list and they do not have to be all of the same type.
+We can put zero, (empty `[]`), one, or multiple values in a list and they can be of different types.
 ```python
 >>> list1 = ['hello!', 123, True]
 >>> print(list1)
@@ -74,7 +74,7 @@ Deleting elements from lists can be accomplished in two ways. We can delete valu
 >>> print(list1)
 ['goodbye!', 123, True, 321]
 ```
-Alternatively, we can delete the first item of a certain value with `remove()`:
+Alternatively, we can delete the first item (just like `index()`) of a certain value with the `remove()` method:
 ```python
 >>> print(list1)
 ['goodbye!', 123, True, 321]
@@ -82,9 +82,218 @@ Alternatively, we can delete the first item of a certain value with `remove()`:
 >>> print(list1)
 [123, True, 321]
 ```
+You are not limited to holding a single value at each position in the list. You can also create lists of lists:
+```python
+>>> list_of_lists = [["A","C","G"],["A","T","C"],["A","G","G"]]
+```
+This kind of structure is similar to an array or a matrix, and you can access elements by their coordinates. If we imagine this list of lists as a grid,
+```python
+list_of_lists = [["A","C","G"],
+                 ["A","T","C"],
+                 ["A","G","G"]]
+```
+we can see that each element will be identified by its coordinates:
+```python
+>>> list_of_lists[0][0]
+'A'
+>>> list_of_lists[0][1]
+'C'
+>>> list_of_lists[2][2]
+'G'
+>>> list_of_lists[1][1]
+'T'
+```
+In the example above we accessed the upper left value with the `[0][0]` index and lower right value with the `[2][2]` index.
 
+One final feature to mention here is the `list()` method, which is used to convert other data types into lists, similarly to `int()` or `str()` methods we already encountered.
 
 ## Dictionaries
+Dictionaries are similar to lists because they can hold mutliple values. Dictionaries, however, have a way of indexing each value by a key that can be a string or an integer. When creating a dictionary, you need to assign both keys and values. The general syntax is that the key-value assosciation is indicated by the colon `:`, the pairs of key-value are separated by commas `,`, and the dictionary is enclosed in curly brackets `{}`:
+```python
+>>> my_pets = {'dog' : 'black','cat' : 'red', 'ant' : 'yellow'}
+```
+In dictionaries, you access a value by using its key:
+```python 
+>>> my_pets['dog']
+'black'
+>>> my_pets['ant']
+'yellow'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'yellow'
+>>> my_pets[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 0
+```
+The first error above shows that we cannot access a key in a doctionary the same way as we can access a value.The second error above shows that you cannot access a dictionary value by its index. In fact, dictionary data in Python is not ordered and beacuse of this accessing a dictionary with an index number does not make sense. Another important thing to remember about dictionaries is that while values can be repeated within a dictionary, all keys must be unique.
 
-## Flow control 
+You can get all values or keys of a dictionary using the `keys()` and `values()` methods, respectively:
+```python
+>>> my_pets.keys()
+dict_keys(['dog', 'ant', 'cat'])
+>>> my_pets.values()
+dict_values(['black', 'yellow', 'red'])
+```
+The values returned are list-like, but are not true lists: you cannot use the familiar list methods on them directly. However, you can also convert these objects into true lists with the `list()` function and you can use them in loops, at which we will look at shortly.
+```python
+>>> pets = list(my_pets.keys())
+>>> pets
+['dog', 'ant', 'cat']
+>>> colors = list(my_pets.values())
+>>> colors
+['black', 'yellow', 'red']
+``` 
+
+## Loops and flow control 
+Flow control is a collective name for all the ways we can make our program do things differently, depending on a condition. Loops are used to execute a piece of code over and over on some objects, such as items in a list. These concepts are common to virtually every programming language, and all you need to know to use them outside of Python is the syntax specific to the language.
+
+### `for` loops
+
+One of the most useful concepts that a biologist learns in programming is that of a `for` loop. Loops allow you to repeat actions and the `for` loop is likely the one you will be using the most often.
+Before we start writing loops, let's open a text editor and write our first script. Gedit is a good general editor avaliable for Ubuntu-like operating systems. You should have an icon of this program on the desktop of your virtual machine. Open it now with a double-click. You can also start it from the command line and simultaneously creating a file by typing `gedit for_loop.py` at the command line. You can customize the looks of your editor in Edit -> Preferences.
+By opening a file with the `.py` extension, Gedit recognized that it's going to be a Python script and turned on **_syntax highlighting_**. This is a very useful feature that will help you orient around your code and make sure you have closing quotes and parentheses.
+Start with the so-called **_shebang_**:
+```python
+#! /usr/bin/env python3
+```
+This line tells the computer where to look for the program that will execute the script. Next, let's create some variables that we can loop through:
+
+```python
+seq = "ACGT"
+
+plants = ['flax', 'rose', 'buttercup']
+
+families = ['Linaceae', 'Rosaceae', 'Ranunculaceae']
+```
+Next, let's try our first loop. In Python you can loop directly on string characters. The `for` loop syntax in Python looks like this:
+```python
+# this will print all characters in seq
+for letter in seq:
+    print(letter)
+```
+We first put the `for` statement, followed by the variable `letter`, statement `in`, and the variable name `seq`. Then we added a colon `:`, pressed `Return`, and **_indented_** the next line by four spaces. The indented block is the code that will be execute over and over with the loop for all items in the `seq` variable. In most languages this indentation inside loop is a convention that is supposed to make code more readable and the content of the loop is signified by some additional symbols, but in Python the indentation itself (preceded by a colon `:`) determines loop contents.
+Note the variable `letter`. Normally we wouldn't use a variable name that was not previously defined, but in loops a variable that is equivalent to each item in a collection looped over is created 'on the go'. We could have named it something else and in explanations of loop syntax you will sometimes see the generic `i` (`for i in ...`) in that place.
+
+It's time to execute our first Python script. Save your file and move back to the terminal window. If you started Gedit from the command line and your terminal tab is preocuppied with you can start a new tab with `Ctrl + Shift + T`. Run your script:
+```shell
+python3 for_loop.py
+```
+This should have printed all elements of your `seq` variable on separate lines (`print()` adds a newline after each execution by default). Let's go back to our script and try something else. `for` loops are useful to accomplish something a certain number of times. You can use the function `range()` in your loop to do this. `range()` takes two integers: one for the beginning and one for the end of a range. If you want to count from zero you can only give one integer, which will be interpreted as the end of the range.
+```python
+# this will print seq 5 times
+for i in range(5):
+    print(seq + " sequence printed times " + str(i))
+```
+Our program now executes two loops. The second loop prints your `seq` variable, followed by some text, followed by the current count in the range function. The count is done from zero but you can make it look more natural by adding `1` to `i`:
+```python
+# this will print seq 5 times
+for i in range(5):
+    print(seq + " sequence printed times " + str(i + 1))
+```
+Remember that you need to save the file before execution for any changes to take effect.
+Let's comment out the two loops we just wrote with triple `"""` at the beginning and the end:
+```python
+"""
+# this will print all characters in seq
+for letter in seq:
+    print(letter)
+
+# this will print seq 5 times
+for i in range(5):
+    print(seq + " sequence printed times " + str(i + 1))
+"""
+```
+If you remember from the previous tutorial, the triple quotes are used for multiline comments and comments are ignored in program execution. Below the commented-out text let's write a `for` loop that goes through the plants in our lists and prints the family they belong to. Note that this will only be possible if items in both lists are in corresponding order:
+```python
+# this will iterate over values from one list and find
+# values of the same index in another list
+for plant in plants:
+    print(plant + " is in the family " + families[plants.index(plant)])
+```
+Just as in the string, the loop knows to treat each object in the list as a separate item. We took advantage of the fact that there is a one-to-one correspondence of indices in both lists, but it seems like this kind of data would be better stored as a dictionary, with plants as keys and families as values. Comment out the loop lines and create a new dictionary:
+```python
+taxonomy = {'flax' : 'Linaceae', 'rose' : 'Rosaceae', 'buttercup' : 'Ranunculaceae'}
+```
+Remember when we were talking about the methods available for dictionaries? There is another very useful method, `items()` that allows us to loop through key and value simultaneously:  
+```python
+for key, value in taxonomy.items():
+    print(key + " is in the family " + value)
+```
+### Conditional statements
+Sometimes we want certain action to be performed if a condition is met. This is where Boolean values and `if`, `else`, and `elif` statements come into play. Let's put to use an `if` statement inside a loop to check (five times) if a plant name is in the dictionary and print out the family it belongs to. We will use the function `input()` to get input from the program's user.
+```python
+# ask five times for a plant name
+for i in range(5):
+    # input asks for user input and saves it in a variable
+    name = input("Please input a plant name:\n")
+    # check if the name is in keys of dictionary
+    # if evaluated to True, print a statement
+    if name in taxonomy.keys():
+        print(name + " belongs to the family " + taxonomy[name])
+    # if the above returns False, print a different statement
+    else:
+        print("I'm sorry, the name wasn't found.")
+```
+Note how anything evaluated inside an `if` statement also has to be indented. 
+
+We can use a `break` statement to break out of the loop if we want to ask only until a name is found:
+```python
+    if name in taxonomy.keys():
+        print(name + " belongs to the family " + taxonomy[name])
+        break                                                     # <=== added break statement
+    # if the above returns False, print a different statement
+    else:
+        print("I'm sorry, the name wasn't found.")
+```
+You can use the `elif` statement (short for 'else if') to give more than two options to your loop. Let's also check for family names:
+```python
+    if name in taxonomy.keys():
+        print(name + " belongs to the family " + taxonomy[name])
+        break
+    # print this if input is a family name
+    elif name in taxonomy.values():                               # <=== added elif statement
+        print(name + " is a family name. Please input a species name.") 
+    # if the above returns False, print a different statement
+    else:
+        print("I'm sorry, the name wasn't found.")
+```
+Instead of the `if name in` statement we could have asked whether the input is not a part the list by using `if name not in`. `if`, `elif`, and `else` statements can also be combined with Boolean comparison operators (see table in the previous tutorial).
+
+### `while` loops
+Another kind of loop that is worth mentioning is a `while` loop. This loop runs until a condition is true:
+```python
+bytes = 2
+while bytes < 8000:
+    print(bytes * 2)
+    bytes = bytes * 2 
+```
+In this loop we initiated a variable with the integer 2, then put a `while` statement that returns `True` while the value of `bytes` is less than 8000. We then increase the value of bytes by multiplying it by 2. Once `bytes` is more than 8000, the loop exits.
+
+It is relatively easy to create a `while` loop that always evaluates to `True` and therefore never stops. If you create a loop like that, you can interrupt the program from the command line with `Ctrl + C`. For example, we can change the value of `bytes` and `while` condition, we can easily create an infinite loop:
+```python
+bytes = 512
+while bytes > 500:
+    print(bytes * 2)
+    bytes = bytes * 2
+```
+The computer starts printing very big numbers really quickly and you need to interrupt. This is because when the `while` loop with this condition and starting value would never return `False`.
+### Augmented assignments
+Above we used variable reassignment and multiplication to overwrite `bytes` with a new value. This is such a common way of modifying values and there is a shorter way of doing this, called **_augmented assignment statement_**. Instead of writing:
+```python
+bytes = bytes * 2
+```
+You can use:
+```python
+bytes *= 2
+```
+The above multiplies and at the same time overwites the `bytes` variable. The same can be done for addition, substitution, and division. Here is the table:
+
+| Regular assignment |Augmented assignment |
+| :----------------: | ------------------- |
+| bytes = bytes + 2  | bytes += 2          |
+| bytes = bytes - 2  | bytes -= 2          |
+| bytes = bytes * 2  | bytes *= 2          |
+| bytes = bytes / 2  | bytes /= 2          |
+
 
