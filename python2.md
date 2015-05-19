@@ -261,7 +261,7 @@ You can use the `elif` statement (short for 'else if') to give more than two opt
 Instead of the `if name in` statement we could have asked whether the input is not a part the list by using `if name not in`. `if`, `elif`, and `else` statements can also be combined with Boolean comparison operators (see table in the previous tutorial).
 
 ### `while` loops
-Another kind of loop that is worth mentioning is a `while` loop. This loop runs until a condition is true:
+Another kind of loop that is worth mentioning is a `while` loop. This loop runs until a condition is false:
 ```python
 bytes = 2
 while bytes < 8000:
