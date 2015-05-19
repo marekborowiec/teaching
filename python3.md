@@ -6,14 +6,18 @@ While discussing loops and flow control we encountered the `input()` function th
 ## Reading from and writing to files
 Much of the time you want your script to perform some operations on contents of a text file, such as the DNA sequence alignment or specimen data files we worked with on the command line. 
 
-Python offers a relatively simple way of getting file contents that involves three steps: 1) opening the file and getting a file object, 2) reading in its contents, and 3) closing the file.
+Python offers a relatively simple way of getting file contents that involves three steps: 
+
+1) opening the file and getting a file object, 
+2) reading in its contents, and 
+3) closing the file.
 
 ### Getting a file object
 Let's open our `Gedit` text editor, put a shebang followed by the directory to our Python3 interpreter,
 ```python
 #! /usr/bin/env python3
 ```
-and save the file as `file_input.py` in Sandbox. You can add a comment that tells you what file you are currently looking at:
+and save the file as `file_input.py` in `Sandbox`. You can add a comment that tells you what file you are currently looking at:
 ```python
 #! /usr/bin/env python3
 
