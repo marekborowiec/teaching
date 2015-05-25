@@ -31,9 +31,9 @@ For each gene you need to write a file (which you could call `Wg.phy`, `LWR.phy`
 
 You will need to use your knowledge of lists, dictionaries, loops, reading and writing files, and string splitting and slicing to write this program.
 
-Hints:
+## Tips
 
-If you want to skip a line (such as a header) in processing a file, you can keep track of the numbers of lines with a counter:
+1) If you want to skip a line (such as a header) in processing a file, you can keep track of the numbers of lines with a counter:
 ```python
 line_counter = 1
 
@@ -42,10 +42,10 @@ for line in in_file_lines:
         ... do something
     line_counter += 1
 ```
-The above loop will skip the first line when processing with 'do something' because at its first iteration the counter is set to `1` and the `if` statement returns `False`. At the end of the first line the loop will add `1` to `line_counter` and thus every following line will be processed.
+The above loop will skip the first line when processing with `... do something` because at its first iteration the counter is set to `1` and the `if` statement returns `False`. At the end of the first line the loop will add `1` to `line_counter` and thus every following line will be processed.
 
-The `.split()` method called with no arguments (i.e `string.split()`) splits by one or more empty characters. This is what you will want.
+2 ) The `.split()` method called with no arguments (i.e `string.split()`) splits by one or more empty characters. This is what you will want.
 
-String slicing is what you can use to split the sequences into chunks corresponding to each gene. Remember about indexing when slicing: first inclusive but last exclusive. Also remember thar 'Python counts from zero'. Example slice for LWR: `[451:918]`.
+3) String slicing is what you can use to split the sequences into chunks corresponding to each gene. Remember about indexing when slicing: first inclusive but last exclusive. Also remember thar 'Python counts from zero'. Example slice for LWR: `[451:918]`.
 
-Dictionaries are a good structure for storing { 'taxon' : 'sequence' } data.
+4) Dictionaries are a good structure for storing { 'taxon' : 'sequence' } data.
