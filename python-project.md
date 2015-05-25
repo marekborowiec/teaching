@@ -1,4 +1,4 @@
-# Project 1: Python scripting
+# PROJECT 2: PYTHON SCRIPTING
 This project will help you practice the Python scripting skills you learned in the tutorials.
 
 You will need a an [example file](https://raw.githubusercontent.com/marekborowiec/teaching/master/files/ponerine.phy) that represents a DNA sequence alignment for multiple ant species. You can copy and paste the contents at this link.
