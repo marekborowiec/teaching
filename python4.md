@@ -44,7 +44,8 @@ We already know how to open a file, so let's start by creating a new Python scri
 #! /usr/bin/env python3
 
 # antweb_to_kml.py by Your Name
-# this script converts 
+# this script converts data from the example file
+# 'ants.txt' to a kml format.
 
 # create file object
 in_file = open("ants.txt")

@@ -30,7 +30,7 @@ The single quotes worked. Having two kinds of quotes also allows you to quote do
 echo "This wasn't that hard"
 echo 'Very "funny " '
 ```
-The quotes act like switches. The opening quote tells the shell where the escaped text starts, and the closing marks where escaping should stop. This is why it doesn’t make sense for the shell to have only one quote. It will continue prompting you for more input, until you close the quote:
+The quotes act like switches. The opening quote tells the shell where the escaped text starts, and the closing marks where escaping should stop. This is why it doesn’t make sense for the shell to have only one opening quote in a command. It will continue prompting you for more input, until you close the quote:
 ```shell
 echo This wasn't that hard
 ```
