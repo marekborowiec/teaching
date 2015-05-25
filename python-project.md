@@ -21,7 +21,7 @@ EF1aF2 = 2800-3316
 AbdA = 3317-3946
 r28S = 3947-4845
 ```
-The above means that the 'Wg' gene is represented by sequence characters 1 through 451 and the '28S' gene is represented by characters 3947 through 4845 out of the total 4845 bases in the example file.
+The above means that the 'Wg' gene is represented by sequence characters 1 through 451 and the 'r28S' gene is represented by characters 3947 through 4845 out of the total 4845 bases in the example file.
 
 For each gene you need to write a file (which you could call `Wg.phy`, `LWR.phy`, etc. for example) that has:
 
