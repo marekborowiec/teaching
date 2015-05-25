@@ -48,4 +48,4 @@ The above loop will skip the first line when processing with `... do something` 
 
 3) String slicing is what you can use to split the sequences into chunks corresponding to each gene. Remember about indexing when slicing: first inclusive but last exclusive. Also remember thar 'Python counts from zero'. Example slice for LWR: `[451:918]`.
 
-4) Dictionaries are a good structure for storing { 'taxon' : 'sequence' } data.
+4) Dictionaries are a good structure for storing `{ 'taxon' : 'sequence' }` data.
