@@ -139,6 +139,13 @@ cut -f 9 ants-na.txt | tail
 ```
 You can specify multiple columns, ranges, and the type of separator by which the columns are counted. See the manual or help for `cut` and the cheat sheet for this section for more options.
 
+Two other commands you may find useful for looking up things in large text files are `sort` and `uniq`. Both have flexible functionality that you can learn about reading their manual pages. For example, using `cut` like above and piping it several times, you can count how many different ant genera are recorded in this large file in just a fraction of a second:
+
+```shell
+cut -f 9 ants-na.txt | sort | uniq | wc -l
+```
+The above first extracts ninth column of the file containing all genera names, sorts them alphabetically, removes duplicates, and finally counts the number of lines, printing to your screen the total unique number of genera.
+
 ![standard streams](/images/stdstreams.png)
 
 Image1. Interactions between standard input (stdin; in this case text entered on your keyboard) to a program (command), standard output (stdout), and standard error (stderr).
