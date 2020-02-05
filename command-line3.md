@@ -85,12 +85,12 @@ grep -E '^mol[^td]' /usr/share/dict/words
 ```
 Because the dictionary contains one word per line, we can see this matched characters 'mol' at the beginning of a line, followed by one character that is not included in the `[td]` class. Let’s try another one:
 ```shell
-grep -E "^ee[a-z']+"" /usr/share/dict/words
+grep -E "^ee[a-z']+" /usr/share/dict/words
 ```
 This matches all text that begins with double 'e' at the beginning of a line, followed by any number of letters and/or single quotes. Note that to include the single quote inside we use double quotes to enclose the expression.
 Similarly, to match the end of line we can use dollar sign:
 ```shell
-grep -E "[A-Za-z]+ee$"" /usr/share/dict/words
+grep -E "[A-Za-z]+ee$" /usr/share/dict/words
 ```
 This finds all text that begins with any number of letters (including upper-case!) and has double 'e' at the end of the line.
 Similarly to beginning and end of line, you can match word boundaries. In this context, a 'word' is any sequence of characters that is composed of letters and/or digits; This is the so-called **_alphanumeric_** text. To signify the beginning of a word use backslash and less-than sign `\<` and backslash with>greater-than sign to match the end of a word:
@@ -101,7 +101,7 @@ An alternative is to use forward slash followed by lower-case letter 'b'. `\b` s
 ```shell
 grep -E 'secondary \b[a-z]+forest\b' ~/Sandbox/ants.txt
 ```
-Try coming up with a dictionary (`/usr/share/dict/words`) searches for any entire word that 1) begins with double 'o', including apostrophe and an 's', 2) contains double 'o' but does not start or end with it, and 3) ends with double 'o' but not apostrophe and an 's'.
+Try coming up with a dictionary (`/usr/share/dict/words`) searches for any entire word that 1) begins with double 'o' and includes apostrophe and an ('s), 2) contains double 'o' but does not start or end with it, and 3) ends with double 'o' but not apostrophe and an ('s).
 Your code could look like this:
 ```shell
 grep -E "^oo[a-z']+" /usr/share/dict/words
