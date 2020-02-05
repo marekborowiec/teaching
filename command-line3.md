@@ -101,13 +101,6 @@ An alternative is to use forward slash followed by lower-case letter 'b'. `\b` s
 ```shell
 grep -E 'secondary \b[a-z]+forest\b' ~/Sandbox/ants.txt
 ```
-Try coming up with a dictionary (`/usr/share/dict/words`) searches for any entire word that 1) begins with double 'o' and includes apostrophe and an ('s), 2) contains double 'o' but does not start or end with it, and 3) ends with double 'o' but not apostrophe and an ('s).
-Your code could look like this:
-```shell
-grep -E "^oo[a-z']+" /usr/share/dict/words
-grep -E "[A-Za-z]+oo[a-z']+" /usr/share/dict/words
-grep -E '[A-Za-z]+oo$' /usr/share/dict/words
-```
 ### Specifying number of matches
 You can tell the expression how many matches of a particular character or set you need. This is done using curly braces:
 ```shell
