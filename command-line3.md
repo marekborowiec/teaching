@@ -47,10 +47,6 @@ The two examples of quoting above work slightly different from another way to es
 ```shell
 echo This wasn\'t \"great\"
 ```
-Remember that the space is also a special character? In the above `echo` prints three separate arguments: `This`, followed by `wasn’t`, and `“great”`. We would need to escape the spaces to make it a single string and only one argument:
-```shell
-echo This\ wasn\'t\ \"great\"
-```
 This will not work:
 ```shell
 echo 'This wasn\'t that hard'
@@ -59,7 +55,7 @@ You will be prompted for more input. When you type an additional `'`, the comman
 ## Regular expressions
 As we have already learned, one can think of text as literal characters or metacharacters, or characters that have special meaning. Regular expressions, **_regex_** for short, is a system that uses metacharacters to match text patterns of various degrees of complexity. Regex is used by several shell commands and many programming languages. It’s useful to think of it as a powerful search and replace tool.
 One important caveat is that regex varies among its implementations, with different metacharacters available in different tools and languages. We will focus on basic regex used by the command line tool `grep` with the option `-E` (also accessible through command `egrep`).
-Some graphical-use-interface text editors use regexes and popular ones include TextWrangler (for Macs) and EditPad (for Windows).
+Some graphical-use-interface text editors use regexes and popular ones include TextWrangler (for Macs) and EditPad (for Windows). I recommend Sublime Text, which is available for all platforms.
 ### Character classes
 The first feature of the regular expression language that we’ll discuss today are character classes. Character classes are delimited by square brackets and mean “match a character that is within (or outside) this set of characters. The class may simply be a list of alternatives. Let’s search through a dictionary file located in `/usr/share/dict/words`:
 ```shell
@@ -77,9 +73,9 @@ Using another special character at the beginning of a class, the caret `^`, we c
 grep -E 'mol[^td]' /usr/share/dict/words
 ```
 This matches `mol` followed by exactly one character that can be anything, except letters 't' or 'd'. To include the caret as a literal character inside a class, put it anywhere except the beginning of the class.
-So far we’ve seen character classes that match only one characters. Most often, however, we will want to match multiple characters from within a class. A plus `+` quantifier serves just that purpose:
+So far we’ve seen character classes that match only one character. Most often, however, we will want to match multiple characters from within a class. A plus `+` quantifier serves just that purpose:
 ```shell
-grep -E 'casent0732[0-9]+' ~/Sandbox/ants.txt
+grep -E 'casent0732[0-9]+' ~/Sandbox/ants-na.txt
 ```
 This matched anything that began with the literal string 'casent0732' followed by one or more of digits from 0 through 9.
 ### Line and word boundaries
@@ -89,28 +85,21 @@ grep -E '^mol[^td]' /usr/share/dict/words
 ```
 Because the dictionary contains one word per line, we can see this matched characters 'mol' at the beginning of a line, followed by one character that is not included in the `[td]` class. Let’s try another one:
 ```shell
-grep -E '^ee[a-z']+' /usr/share/dict/words
+grep -E "^ee[a-z']+" /usr/share/dict/words
 ```
 This matches all text that begins with double 'e' at the beginning of a line, followed by any number of letters and/or single quotes. Note that to include the single quote inside we use double quotes to enclose the expression.
 Similarly, to match the end of line we can use dollar sign:
 ```shell
-grep -E "[A-Za-z]+ee$ /usr/share/dict/words
+grep -E "[A-Za-z]+ee$" /usr/share/dict/words
 ```
 This finds all text that begins with any number of letters (including upper-case!) and has double 'e' at the end of the line.
-Similarly to beginning and end of line, you can match word boundaries. In this context, a 'word' is any sequence of characters that is composed of letters and/or digits; This is the so-called **_alphanumeric_** text. To signify the beginning of a word use backslash and less-than sign `\<` and backslash with greater-than sign to match the end of a word:
+Similarly to beginning and end of line, you can match word boundaries. In this context, a 'word' is any sequence of characters that is composed of letters and/or digits; This is the so-called **_alphanumeric_** text. To signify the beginning of a word use backslash and less-than sign `\<` and backslash with>greater-than sign to match the end of a word:
 ```shell
-grep -E 'secondary \<[a-z]+forest\>' ~/Sandbox/ants.txt
+grep -E 'secondary \<[a-z]+forest\>' ~/Sandbox/ants-na.txt
 ```
 An alternative is to use forward slash followed by lower-case letter 'b'. `\b` signifies word boundary and will work for both beginning and end of alphanumeric string. This achieves the same as the above:
 ```shell
 grep -E 'secondary \b[a-z]+forest\b' ~/Sandbox/ants.txt
-```
-Try coming up with a dictionary (`/usr/share/dict/words`) searches for any entire word that 1) begins with double 'o', including apostrophe and an 's', 2) contains double 'o', 3) ends with double 'o' but not apostrophe and an 's'.
-Your code could look like this:
-```shell
-grep -E "^oo[a-z']+" /usr/share/dict/words
-grep -E "[A-Za-z]+oo[a-z']+ " /usr/share/dict/words
-grep -E '[A-Za-z]+oo$' /usr/share/dict/words
 ```
 ### Specifying number of matches
 You can tell the expression how many matches of a particular character or set you need. This is done using curly braces:
@@ -121,14 +110,14 @@ In the above expression, we match any line that begins with any two letters, fol
 ### Optional matches
 For any character class we can also specify optional matching. Let’s imagine you want to make your pattern more flexible by allowing some pattern to be matched optionally. This would make your expression match cases where a certain pattern matches and where it doesn’t. You can do it by adding a question mark `?` after a single character or character class, or enclosing the optional pattern withparentheses if it contains more than one character or class:
 ```shell
-grep -E "[A-Za-z]+oo('s)?" /usr/share/dict/words
+grep -E "[A-Za-z]+oo('s)?$" /usr/share/dict/words
 ```
 This matches entire words ending double 'o' followed by apostrophe and 's' or those that just end with 'oo'. There is no limit to how complex an optional pattern enclosed by parentheses can be. A common use of optional patterns is for separators, such a spaces that may or may not be present in text we want to find:
 ```shell
 echo 'dataset data set' | grep -E 'data set'
 echo 'dataset data set' | grep -E 'data ?set'
 ```
-matching any character with period and making matches optional with asterisk
+### Matching any character with period and making matches optional with asterisk
 In regular expressions, a period stands for any character:
 ```shell
 echo '123!@#"* one_two THREE' | grep -E 'two...'
@@ -159,7 +148,8 @@ grep -E 'mol[etd]' /usr/share/dict/words
 ```
 We can also imagine more sophisticated alternatives:
 ```shell
-grep -Eo 'anic[0-9-]+|inbio([a-z]+)?[0-9]+' ~/Sandbox/ants.txt
+grep -Eo 'anic[0-9-]+|casent[0-9]+' ~/Sandbox/ants-na.txt | sort | head
+grep -Eo 'anic[0-9-]+|casent[0-9]+' ~/Sandbox/ants-na.txt | sort | tail
 ```
 The above looks for anything that looks like the pattern to the left of the pipe, or anything that matches the pattern to the right of it.
 ### Shorthand character classes
@@ -186,7 +176,4 @@ echo '\1\w[a-z]+' | grep -E '\\1\\w\[a-z\]\+'
 ### Matching newline
 In text files, each line is separated from the next using the so-called newline or line break. Being able to match a newline is very useful, because you can write patterns that span across multiple lines. A confusing thing about newlines is that different operating systems handle them in different ways. Simplifying, you can match a newline in text generated on most Unix-like systems (including Linux, Ubuntu, Mac OS) with `\n` and for text written under Windows you need to use `\n\r`. You can read more about the various types of newlines on [Wikipedia](http://en.wikipedia.org/wiki/Newline).
 
-The way that `grep` processes text is not compatible with matching newline characters, but you can do this in TextWrangler or EditPad. I encourage you to install those text editors and try playing around with regular expressions in your own text.
-
-After this tutorial you should be ready to work on the command line project.
-
+The way that `grep` processes text is not compatible with matching newline characters, but you can do this in SublimeText. I encourage you to install those text editors and try playing around with regular expressions in your own text.
