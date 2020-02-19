@@ -1,4 +1,4 @@
-#Command line interface part 5
+# Command line interface part 5
 Anther very powerful command is `awk`. It is actually a complete programming language designed for fast and flexible manipulations of text files. Its basic capabilities are similar to `sed` but it often has a more intuitive use. Knowing `awk` better will also allow you to accomplish things more often with one command instead of stringing long pipelines from different commands together. Just like `sed`, `awk` works on files line by line. This brief overview is just to give you an idea about what `awk` is. If you are working with molecular sequence data, you will often find solutions to manipulate sequence files on-line using `awk`, some of them very complex. You will not be able to understand them all right away but the idea is to give you some familiarity with what you may encounter.
 Its basic syntax is:
 ```shell
@@ -32,7 +32,19 @@ Just as the built-in variable `FS` stores the character `awk` uses to separate f
 ```shell
 ls -l | awk '{ sum += $5 } END { print sum / NR }'
 ```
-Remember that we said that we can also match patterns? You can use regular expressions or simple matching before the action enclosed in curly braces like this: `$field ~ /pattern/ { action }`. Let's find all files that have "txt" in their name and print their average size:
+Remember that we said that we can also match patterns? You can use regular expressions or simple matching before the action enclosed in curly braces like this: `$field ~ /pattern/ { action }`. Let's find all files that have "txt" in their name and print their total size:
 ```shell
-ls -l | awk '$9 ~ /txt/ { sum += $5 } END { print sum / NR }'
+ls -l | awk '$9 ~ /txt/ { sum += $5 } END { print sum }'
+```
+I personally like to use combination of `awk` and `sed` to rename files in bulk:
+```shell
+ls *out | awk '{ print "mv "$1" "$1 }' | sed 's/.txt.out/.out/2'
+```
+Is exactly the same as:
+```shell
+ls *out | sed -r 's/(.*)/mv \1 \1/g' | sed 's/.txt.out/.out/2'
+```
+You can filter out records that are above a certain number. The following will show only species names (columns 10 and 11) and elevations (column 26) of records from above 7,500ft:
+```shell
+awk 'BEGIN { FS = "\t" } ; $26 > 7500 { print $10, $11, $26 }'
 ```
