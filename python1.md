@@ -3,9 +3,9 @@
 ## What is Python and why learn it?
 All programming languages are formal sets of instructions that are used to control the behavior of a computer. These instructions are commonly referred to as code. The code is just plain text that people can write and understand, but which can also be translated into a language that computer processor can directly understand. Under the hood, every application that you use to interact with your computer such as your text editor, operating system, or favorite computer game was written as code. Short programs containing code are often called **_scripts_** and the activity of writing them is scrpting.
 
-Python is a general-purpose language that is gaining popularity as the language of choice for beginner scientific programmers: it is relatively easy to learn, has an ever-growing base of resources and a large community of users. Popular programs written in Python include Dropbox, the interface of Youtube, Instagram, and many Google apps. Python programs can be very concise and often have fewer lines of code than similar programs in other languages. Python is also rapidly gaining ground in bioinformatics and biology, slowly replacing another popular general-use language called "Perl". The Python community is currently transitioning from an older version of the language, Python 2, into Python version 3. There are several differences between the two, and here we will focus on Python 3.
+Python is a general-purpose language that is gaining popularity as the language of choice for beginner scientific programmers: it is relatively easy to learn, has an ever-growing base of resources and a large community of users. Popular programs written in Python include Dropbox, the interface of Youtube, Instagram, and many Google apps. Python programs can be very concise and often have fewer lines of code than similar programs in other languages. Python is also rapidly gaining ground in bioinformatics and biology, slowly replacing another popular general-use language called "Perl". The Python community has recently transitioned from an older version of the language, Python 2, into Python version 3. There are several differences between the two, and here we will focus on Python 3.
 
-Learning the basics of a programming language gives you flexibility in analyzing and interacting with your data and empowers you to harness the awesome power of your computer. In the coming five meetings we will learn the basic building blocks of a Python program. There are already excellent resources out there aimed specifically at teching Python to biologists and I encourage you to check out those mentioned on our Resources page.   
+Learning the basics of a programming language gives you flexibility in analyzing and interacting with your data and empowers you to harness the awesome power of your computer. In the coming five meetings we will learn the basic building blocks of a Python program. There are already excellent resources out there aimed specifically at teching Python to biologists. We will talk about those towards the end of the class.
 
 ## Python's interactive interpreter
 Your Python code can be a simple text file or it can be entered on an interactive interpreter that comes with the language. The interpreter shows you a prompt when it is wating for input and has the interface similar to the command line. The instructions you type in it are read and translated for the computer on the go. We will start working with the interpreter, in later sessions moving to a text file to save our code. Let’s enter the interpreter by typing `python3`  and pressing `Return`. You should see something like this:
@@ -25,15 +25,15 @@ Anything that starts with `#` is ignored and acts as a comment. Comments are an 
 ## Variables
 A very important basic concept in programming is that of a **_variable_**. Variables are names given to some other entities. You can think of a variable as a kind of box that stores data. A simple example would be to store some text in a variable and then print it:
 ```python
->>> greeting = "Hello!"
+>>> greeting = "Hello World!"
 >>> print(greeting)
 ```
 There are several things to discuss here. First, there are certain rules you need to follow when giving names to variables. They can only be composed of letters, numbers, and underscores. They cannot start with a number and be certain words that have special meanings, for example `True` or `False`. The recommended practice is to name variables in all lowercase, with words separated by an underscore in multi-word names: `my_variable`, `number_of_sequences` etc. It is also good to name your variables in a way that conveys information. Names like `x` or `Bb` are not very useful and will make your code difficult to understand.
 
-In the code above, we put the value `Hello!` into a variable called `greeting` by using the equal `=` sign. This is how values are **_assigned_** to variables.
+In the code above, we put the value `Hello World!` into a variable called `greeting` by using the equal `=` sign. This is how values are **_assigned_** to variables.
 
 ## Data types: strings
-Python recognizes various types of data. This is because certain operations make sense for one kind of data but not others. For example, division and substraction are great for numbers but are not applicable to text. As biologists, we are often interested in manipulating data that programmers call **_strings_**. Strings are just sequences of characters and are a good representation for, for example, DNA or amino acid sequence data. You can think of strings as plain, literal text. In Python, we let the computer know that the text we are writing is a string by enclosing it in quotes (double or single). In the example above, we used the string `Hello!`. 
+Python recognizes various types of data. This is because certain operations make sense for one kind of data but not others. For example, division and substraction are great for numbers but are not applicable to text. As biologists, we are often interested in manipulating data that programmers call **_strings_**. Strings are just sequences of characters and are a good representation for, for example, DNA or amino acid sequence data. You can think of strings as plain, literal text. In Python, we let the computer know that the text we are writing is a string by enclosing it in quotes (double or single). In the example above, we used the string `Hello World!`. 
 
 Python has certain operations that can be applied to strings. 
 
@@ -60,7 +60,7 @@ Python has built-in functions that are useful for manipulating strings. A functi
 12
 ```
 Later we will see `len()` used for other data types.
-You can also do operations that are specific to a particular data type. These are called **_methods_**, and are applied slightly differently from functions. We use them by first assigning our data to a variable and then following the variable name by a period `.`, followed by the method's name and parentheses:
+You can also do operations that are specific to a particular data type. These are called **_methods_**, and are applied slightly differently from functions. The difference between methods and functions is subtle, but it is sufficient for you to know that basic data types in Python will have their special methods. We use them by first assigning our data to a variable and then following the variable name by a period `.`, followed by the method's name and parentheses:
 ```python
 >>> print(my_sequence.lower())
 atatttgcgccc
@@ -73,7 +73,7 @@ In the above we applied the method `lower()` to our `my_sequence` variable and t
 >>> print(my_sequence)
 atatttgcgccc
 ```
-Strings have many methods and function that can be applied to them. You can find a list of all the methods in the [official Python documentation](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str). It is likely that at first you will find those pages too technical, but as you learn more about how Python works they will become the first place to look for help when working on a problem. Let's try a couple more `str` methods.
+Strings have many methods and built-in functions that can be applied to them. You can find a list of all the methods in the [official Python documentation](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str). It is likely that at first you will find those pages too technical, but as you learn more about how Python works they will become the first place to look for help when working on a problem. Let's try a couple more `str` methods.
 
 Similarly to the `lower()` methods, there is a way to convert strings to uppercase:
 ```python
@@ -109,9 +109,9 @@ Remember the `count()` method? Let's try to print its output in a more informati
 >>> print("There are " +  my_sequence.count('a') + " occurrences of 'a' in your sequence")
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-TypeError: Can't convert 'int' object to str implicitly
+TypeError: must be str, not int
 ```
-What is this about? We know that we can concatenate strings with the plus sign, so why does this not work? The error above tells us where something went wrong `(line 1 of <stdin>)` and what was the error `(TypeError: Can't convert 'int' object to str implicitly)`. The error tells us that there was a `int` object that could not be converted to a `str` object, the Python's shorthand for string. Turns out that the output of the `count()` method is not a string but a different data type, an **_integer_** or `int`. We will explain how Python handles number in a separate section, but for now its enough to say that integers are simply "whole" numbers, those without fractional components.
+What is this about? We know that we can concatenate strings with the plus sign, so why does this not work? The error above tells us where something went wrong `(line 1 of <stdin>)` and what was the error `TypeError: must be str, not int`. The error tells us that there was a `int` object that could not be converted to a `str` object, the Python's shorthand for string. Turns out that the output of the `count()` method is not a string but a different data type, an **_integer_** or `int`. We will explain how Python handles number in a separate section, but for now its enough to say that integers are simply "whole" numbers, those without fractional components.
 We can make the above work by converting the integer output of `count()` into a string. This is done using the `str()` function:
 ```python
 >>> print("There are " +  str(my_sequence.count('a')) + " occurrences of 'a' in your sequence")
@@ -177,7 +177,7 @@ You can perform all standard types of mathematical expressions on floats and int
 >>> my_num1 * my_num2
 28.273500000000002
 ```
-To better understand how the code you type is interpreted it is important to highlight here the concept of an expression. The math above are simple examples of expressions. Python tries to **_evaluate_** each expression until it becomes a single value. Python expressions using numbers behave according to the rules of mathematical expressions, that is they follow the order of operations where exponents `**` are evaluated first, followed by multiplication with `*` and division `/`, finally followed by addition `+` and subtraction `-` (all evaluated from left to right). A simple mathematical expression will be evaluated piece by piece until it returns a single value:
+To better understand how the code you type is interpreted it is important to highlight here the concept of an expression. The math above are simple examples of expressions. Python tries to **_evaluate_** each expression until it becomes a single value. Python expressions using numbers behave according to the rules of mathematical expressions, that is they follow the order of operations where you try to evaluate everything in parentheses first, exponents `**` are evaluated next, followed by multiplication with `*` and division `/`, finally followed by addition `+` and subtraction `-` (all evaluated from left to right). A simple mathematical expression will be evaluated piece by piece until it returns a single value:
 ```python
 2 * 2 - (2 + 2) / 5
 2 * 2 -    4    / 5
@@ -208,7 +208,7 @@ True
   File "<stdin>", line 1
 SyntaxError: can't assign to keyword
 ```
-Boolean values are used to compare statements and will be especially important when we will be talking about flow control, that is  code that can behave differently depending on whether a condition is `True` or `False`. Just as in mathematical expressions, there are special operators that are used to compare values:
+Boolean values are used to compare statements and will be especially important when we will be talking about flow control, that is code that can behave differently depending on whether a condition is `True` or `False`. Just as in mathematical expressions, there are special operators that are used to compare values:
 
 |operator  |meaning                   |
 | :------: | ------------------------ |
@@ -278,3 +278,4 @@ In other words, indexing in Python starts with zero and is first-inclusive but l
 "A  T  A  A  T  T  G  A  T  A  G  T  A  T  G  C  T  A  C  C"
  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19
 ```
+This is different from some other programming languages, most notably `R` or `MATLAB` and some other statistics-oriented ones, but also `awk` that you used in the command line part of this class. Why is that? Can't programmers just agree on one indexing system? You can read this and follow the links in comments there to go down that rabbit hole yourself: http://python-history.blogspot.com/2013/10/why-python-uses-0-based-indexing.html.
