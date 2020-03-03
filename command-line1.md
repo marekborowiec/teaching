@@ -1,8 +1,10 @@
 # Command line interface part 1
+
 ## Terminals, shells, and prompt
 The terminal is a program that opens a window and lets you type commands for the [shell](https://www.gnu.org/software/bash/manual/html_node/What-is-a-shell_003f.html#What-is-a-shell_003f). The shell is simply another program that allows you to interact with the computer through those commands. In these tutorials we’ll be working on [bash](https://www.gnu.org/software/bash/manual/html_node/What-is-Bash_003f.html#What-is-Bash_003f), a commonly used shell program. Bash (and other similar shells) comes installed on most **_Unix-like_** operating systems, including Mac operating systems and various versions of Linux, but not Windows. The **_prompt_** is just a string of text that ‘prompts’ you for input. Its appearance can be customized and expect it to vary from terminal to terminal.
-On our Lubuntu virtual machine the prompt has the following components: 
 
+On our Lubuntu virtual machine the prompt has the following components: 
+```shell
 username – your user name
 
 @ (‘at’ sign) – this is just a separator
@@ -14,10 +16,12 @@ username – your user name
 ~/Sandbox – an example of working directory; the directory you are in right now
 
 $ (dollar sign) – signifies that you are in user mode:
-```shell
+
 compbiol@compbiol-VirtualBox:~/Sandbox$
 ```
+
 In these notes, the text that you should see or enter in your terminal window is on highlighted lines. Each new line means that the preceding line has been entered by pressing the `Return` key (Enter).
+
 ## File system: root and home, directory tree
 All files and folders (we will be calling them directories from now on) are organized in a tree-like structure. The most inclusive directory, the one that contains all other folders is called the **_root_** directory. There is another directory that is special: it is called the **_home_** directory. If the computer operating system was set up to have multiple users, each user would have their own home directory. Every time you open a new terminal window, by default you are put in the home directory of the user you’re logged in as. You can move up and down the directory tree and the shell keeps track of where you are, displaying your working directory in the prompt. Each location on the file system can be specified, just like an address to a place; this 'address' is called the **_path_**. Path also has another meaning, but we will get to that later.
 
@@ -27,7 +31,8 @@ The **_home_** directory is represented by a tilde or user name: `~`
 
 The **_path_** to your working directory is shown at the prompt, following the colon.
 
-Confusingly, the root directory in your virtual machine has another directory called 'home'. This is not the same as the home directory signified by the tilde `~`. Here we will refer to home directory in the latter sense.
+Confusingly, the root directory in your virtual machine has another directory called 'home'. This is not the same as the home directory signified by the tilde `~`. Here we will refer to home directory in the latter sense. Generally, in a system where many users share the same computer (as in computer clusters), each user will have their own home directory in which they have permissions to write new files, install software etc., but outside of which their priviledges are limited.
+
 ## Basic commands to get around the file system: `ls`, `pwd`, `cd`
 Typing commands at the prompt is the primary way of interacting with the shell. Commands are case-sensitive and usually have zero tolerance for misspellings. You can delete characters on the command line using `Backspace` and `Delete`, and move back and forth using `←` and `→` arrow keys.
 ### `ls` (list) – what’s in here?
@@ -39,7 +44,15 @@ Always take a second to review what you wrote and hit the `Return` key (Enter). 
 ```shell
 ls Sandbox
 ```
-Typing ls and other commands calls a computer program, a so-called executable file, which then carries out the functions of the command.
+Typing `ls` and other commands calls a computer program, a so-called executable file, which then carries out the functions of the command. Simply put, each command is actually a small independent program.
+
+Since each command is a piece of software, they often have different options. The way these options are invoked is through the so-called command line arguments. Type:
+```shell
+ls -l
+```  
+
+
+
 ### `pwd` (print working directory) – where am I?
 ```shell
 pwd
