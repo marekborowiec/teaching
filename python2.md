@@ -105,6 +105,8 @@ we can see that each element will be identified by its coordinates:
 ```
 In the example above we accessed the upper left value with the `[0][0]` index and lower right value with the `[2][2]` index.
 
+How would you make a and access items in a list of lists of lists?
+
 One final feature to mention here is the `list()` method, which is used to convert other data types into lists, similarly to `int()` or `str()` methods we already encountered.
 
 ## Dictionaries
@@ -118,6 +120,7 @@ In dictionaries, you access a value by using its key:
 'black'
 >>> my_pets['ant']
 'yellow'
+>>> my_pets['yellow']
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 KeyError: 'yellow'
@@ -135,7 +138,7 @@ dict_keys(['dog', 'ant', 'cat'])
 >>> my_pets.values()
 dict_values(['black', 'yellow', 'red'])
 ```
-The values returned are list-like, but are not true lists: you cannot use the familiar list methods on them directly. However, you can also convert these objects into true lists with the `list()` function and you can use them in loops, at which we will look at shortly.
+The values returned are list-like, but are not true lists: you cannot use the familiar list methods on them directly. However, you can also convert these objects into true lists with the `list()` function. You can also use them in loops, at which we will look at shortly.
 ```python
 >>> pets = list(my_pets.keys())
 >>> pets
@@ -144,6 +147,7 @@ The values returned are list-like, but are not true lists: you cannot use the fa
 >>> colors
 ['black', 'yellow', 'red']
 ``` 
+Try to make your own dictionary and play around with accessing its values by key and printing them all at once. 
 
 ## Loops and flow control 
 Flow control is a collective name for all the ways we can make our program do things differently, depending on a condition. Loops are used to execute a piece of code over and over on some objects, such as items in a list. These concepts are common to virtually every programming language, and all you need to know to use them outside of Python is the syntax specific to the language.
@@ -151,8 +155,9 @@ Flow control is a collective name for all the ways we can make our program do th
 ### `for` loops
 
 One of the most useful concepts that a biologist learns in programming is that of a `for` loop. Loops allow you to repeat actions and the `for` loop is likely the one you will be using the most often.
-Before we start writing loops, let's open a text editor and write our first script. Gedit is a good general editor avaliable for Ubuntu-like operating systems. You should have an icon of this program on the desktop of your virtual machine. Open it now with a double-click. You can also start it from the command line and simultaneously creating a file by typing `gedit for_loop.py` at the command line. You can customize the looks of your editor in Edit -> Preferences.
-By opening a file with the `.py` extension, Gedit recognized that it's going to be a Python script and turned on **_syntax highlighting_**. This is a very useful feature that will help you orient around your code and make sure you have closing quotes and parentheses.
+Before we start writing loops, let's open a text editor and write our first script. Sublime Text is a good general editor avaliable for all operating systems. You should have an icon of this program on the desktop of your virtual machine. Open it now with a double-click. You can also start it from the command line and simultaneously creating a file by typing `subl for_loop.py` at the command line. Be sure to exit Python interpreter with `quit()` first!
+
+By opening a file with the `.py` extension, Sublime Text recognized that it's going to be a Python script and turned on **_syntax highlighting_**. This is a very useful feature that will help you orient around your code and make sure you have closing quotes and parentheses.
 Start with the so-called **_shebang_**:
 ```python
 #! /usr/bin/env python3
@@ -172,10 +177,10 @@ Next, let's try our first loop. In Python you can loop directly on string charac
 for letter in seq:
     print(letter)
 ```
-We first put the `for` statement, followed by the variable `letter`, statement `in`, and the variable name `seq`. Then we added a colon `:`, pressed `Return`, and **_indented_** the next line by four spaces. The indented block is the code that will be execute over and over with the loop for all items in the `seq` variable. In most languages this indentation inside loop is a convention that is supposed to make code more readable and the content of the loop is signified by some additional symbols, but in Python the indentation itself (preceded by a colon `:`) determines loop contents.
+We first put the `for` statement, followed by the variable `letter`, statement `in`, and the variable name `seq`. Then we added a colon `:`, pressed `Return`, and we saw that the editor automatically **_indented_** the next line by one tab. The indented block is the code that will be execute over and over with the loop for all items in the `seq` variable. In most languages this indentation inside loop is a convention that is supposed to make code more readable and the content of the loop is signified by some additional symbols, but in Python the indentation itself (preceded by a colon `:`) determines loop contents.
 Note the variable `letter`. Normally we wouldn't use a variable name that was not previously defined, but in loops a variable that is equivalent to each item in a collection looped over is created 'on the go'. We could have named it something else and in explanations of loop syntax you will sometimes see the generic `i` (`for i in ...`) in that place.
 
-It's time to execute our first Python script. Save your file and move back to the terminal window. If you started Gedit from the command line and your terminal tab is preocuppied with you can start a new tab with `Ctrl + Shift + T`. Run your script:
+It's time to execute our first Python script. Save your file and move back to the terminal window. Hot tip: on PC you can switch between windows with `ALT+TAB` and on Mac with `ALT+SHIFT+TAB`. Run your script:
 ```shell
 python3 for_loop.py
 ```
@@ -224,7 +229,7 @@ for key, value in taxonomy.items():
 Sometimes we want certain action to be performed if a condition is met. This is where Boolean values and `if`, `else`, and `elif` statements come into play. Let's put to use an `if` statement inside a loop to check (five times) if a plant name is in the dictionary and print out the family it belongs to. We will use the function `input()` to get input from the program's user.
 ```python
 # ask five times for a plant name
-for i in range(5):
+for i in range(3):
     # input asks for user input and saves it in a variable
     name = input("Please input a plant name:\n")
     # check if the name is in keys of dictionary
