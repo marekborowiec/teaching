@@ -1,5 +1,64 @@
 # PYTHON PROGRAMMING PART 3
 
+## Conditional statements
+Sometimes we want certain action to be performed if a condition is met. This is where Boolean values and `if`, `else`, and `elif` statements come into play. Let's put to use an `if` statement inside a loop to check (five times) if a plant name is in the dictionary and print out the family it belongs to. We will use the function `input()` to get input from the program's user.
+```python
+# ask five times for a plant name
+for i in range(3):
+    # input asks for user input and saves it in a variable
+    name = input("Please input a plant name:\n")
+    # check if the name is in keys of dictionary
+    # if evaluated to True, print a statement
+    if name in taxonomy.keys():
+        print(name + " belongs to the family " + taxonomy[name])
+    # if the above returns False, print a different statement
+    else:
+        print("I'm sorry, the name wasn't found.")
+```
+Note how anything evaluated inside an `if` statement also has to be indented. 
+
+We can use a `break` statement to break out of the loop if we want to ask only until a name is found:
+```python
+    if name in taxonomy.keys():
+        print(name + " belongs to the family " + taxonomy[name])
+        break                                                     # <=== added break statement
+    # if the above returns False, print a different statement
+    else:
+        print("I'm sorry, the name wasn't found.")
+```
+You can use the `elif` statement (short for 'else if') to give more than two options to your loop. Let's also check for family names:
+```python
+    if name in taxonomy.keys():
+        print(name + " belongs to the family " + taxonomy[name])
+        break
+    # print this if input is a family name
+    elif name in taxonomy.values():                               # <=== added elif statement
+        print(name + " is a family name. Please input a species name.") 
+    # if the above returns False, print a different statement
+    else:
+        print("I'm sorry, the name wasn't found.")
+```
+Instead of the `if name in` statement we could have asked whether the input is not a part the list by using `if name not in`. `if`, `elif`, and `else` statements can also be combined with Boolean comparison operators (see table in the previous tutorial).
+
+## `while` loops
+Another kind of loop that is worth mentioning is a `while` loop. This loop runs until a condition is false:
+```python
+bytes = 2
+while bytes < 8000:
+    print(bytes * 2)
+    bytes = bytes * 2 
+```
+In this loop we initiated a variable with the integer 2, then put a `while` statement that returns `True` while the value of `bytes` is less than 8000. We then increase the value of bytes by multiplying it by 2. Once `bytes` is more than 8000, the loop exits.
+
+It is relatively easy to create a `while` loop that always evaluates to `True` and therefore never stops. If you create a loop like that, you can interrupt the program from the command line with `Ctrl + C`. For example, we can change the value of `bytes` and `while` condition, we can easily create an infinite loop:
+```python
+bytes = 512
+while bytes > 500:
+    print(bytes * 2)
+    bytes = bytes * 2
+```
+The computer starts printing very big numbers really quickly and you need to interrupt. This is because when the `while` loop with this condition and starting value would never return `False`.
+
 ## User input
 While discussing loops and flow control we encountered the `input()` function that made our program prompt for user input that can be stored as a variable. Today we will learn more about ways in which your program can take input by reading from files and understanding command line arguments.
 
