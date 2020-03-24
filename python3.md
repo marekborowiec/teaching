@@ -3,7 +3,12 @@
 ## Conditional statements
 Sometimes we want certain action to be performed if a condition is met. This is where Boolean values and `if`, `else`, and `elif` statements come into play. Let's put to use an `if` statement inside a loop to check (five times) if a plant name is in the dictionary and print out the family it belongs to. We will use the function `input()` to get input from the program's user.
 ```python
-# ask five times for a plant name
+#! /usr/bin/env python3
+
+taxonomy = {'flax': 'Linaceae',
+            'rose': 'Rosaceae',
+            'buttercup': 'Ranunculaceae'}
+# ask three times for a plant name
 for i in range(3):
     # input asks for user input and saves it in a variable
     name = input("Please input a plant name:\n")
@@ -51,6 +56,8 @@ while cases < 1000000:
     day = day + 1
 ```
 In this loop we initiated a variable with the integer 45,000, then put a `while` statement that returns `True` while the value of `cases` is less than 1,000,000. We then increase the number of cases by multiplying it by 1.35. Once `cases` is more than 1,000,000, the loop exits. We are also tracking the number of days: we started at 1 and increment that variable by 1 with every iteration of the loop.
+
+Is there another, shorter way to write `cases = cases * 1.35` or `day = day + 1`? Hint: remember augmented assignments?
 
 It is relatively easy to create a `while` loop that always evaluates to `True` and therefore never stops. If you create a loop like that, you can interrupt the program from the command line with `Ctrl + C`. For example, we can change the value of `bytes` and `while` condition, we can easily create an infinite loop:
 ```python
@@ -192,7 +199,7 @@ print(matching_lines)
 Remember that this line has no indent because we are going to print the list only after the loop has finished. If you place it within an indented block for the `for` loop, it will print the list at every run of the loop. Printing output after you introduced a new piece of code is a way of checking if the program still works as expected.
 
 Your script should now look like this:
- ```python
+```python
 #! /usr/bin/env python3
 
 # file_input.py by Your Name
