@@ -71,7 +71,7 @@ Let's open our `file_input.py` script and import this module at the beginning, a
 import sys
 
 # create file object
-in_file = open("ants.txt")
+in_file = open("ants-na.txt")
 ```
 Now you can use the `argv` method that is available from the `sys` module. It parses command line arguments and allows you to store them in variables. The way that arguments are separated is always by spaces on the command line and you can access the arguments through `sys.argv[index]`. The argument at index `0` is always your script name (in our example this will be `file_input.py`), but the arguments starting at index `1` can be assigned to variables. Let's try to make our script read file name from the command line:
 ```python
@@ -113,9 +113,7 @@ in_file = open(file_name)
 # read in file contents as list of strings (lines)
 in_file_list = in_file.readlines()
 # what to look for
-match = "Yolo"
-# what to print if match not found
-message = "Line did not match"
+match = "Moscow"
 # empty list where matching lines will be appended
 matching_lines = []
  
@@ -138,9 +136,14 @@ out_file.write(output)
 # close output file
 out_file.close()
 ```
-
+### Writing your own Python functions
+You encountered several functions available in the "standard Python library", such as `len()`, `int()`, `open()`. What are functions and why do they exist? The why seems pretty obvious: these functions enable basic operations someone writing code would want to perform on their data. And why would you want to write your own functions? There are many advantages. Functions allow you to re-use code in a script without having to copy and paste, which is also useful because if you need to modify something, you just need to do it once. Breaking code up into functions also makes it easier to solve larger problems because it allows independent work on different functionalities. But what are these functions? There is nothing magical about them. All you have to do to make a function is to use special syntax similar to that of a loop:
+```python
+def do_awesome(arguments):
+  # do amazing things
+  return some_variable
+```
 # PYTHON PROGRAMMING PART 4
-
 ## Bringing it all together: creating a KML file
 Now that you know the basics of Python's syntax, you are ready to apply this knowledge to reformat a file. The KML format is a [markup language](http://en.wikipedia.org/wiki/Markup_language) that is used to annotate data to be visualized in Google Earth. In this tutorial we will create a Python program that converts a subset of the data in our example `ants.txt` file to a format that can be displayed in Google Earth. There are several on-line tools to convert spreadsheets into KML files, but writing your own script is a good exercise and will make you use many of the basic concepts you've learned so far. You can find the complete script written for this tutorial under `antweb_to_kml.py` and also towards the end of this page. The final KML output is in `ants.kml`. 
 
