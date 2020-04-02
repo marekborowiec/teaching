@@ -210,7 +210,7 @@ def get_matching_lines(list_of_lines, match):
     # empty list where matching lines will be appended
     matching_lines = [] 
     # loop over all elements in list
-    for line in in_file_list:
+    for line in list_of_lines:
         # if line contains match, append it to matching_lines
         if match in line:
             matching_lines.append(line)
