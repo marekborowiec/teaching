@@ -13,11 +13,11 @@ username – your user name
 
 : (colon) – another separator
 
-~/Sandbox – an example of working directory; the directory you are in right now
+~ – an example of working directory; the directory you are in right now
 
 $ (dollar sign) – signifies that you are in user mode:
 
-compbiol@compbiol-VirtualBox:~/Sandbox$
+comp-biol@ubuntu:~$
 ```
 
 In these notes, the text that you should see or enter in your terminal window is on highlighted lines. Each new line means that the preceding line has been entered by pressing the `Return` key (Enter).
@@ -56,7 +56,7 @@ ls -l
 ### `pwd` (print working directory) – where am I?
 ```shell
 pwd
-/home/compbiol
+/home/comp-biol
 ```
 This is another useful command to get oriented. It prints your path from the root directory. If you remember the distinction between home and root directories, the prompt shows you the path starting at your home directory, while `pwd` prints the complete path starting at the root directory. Paths starting at the root or home are also called **_absolute_** paths.
 ### `cd` (change directory) – move around
@@ -89,10 +89,10 @@ cd /
 ls
 ```
 There are several folders, including `bin`, which contains most of the executable programs present on the computer, such as bash itself.
-To go back to our home directory from here or anywhere else on the system, we have three options. Typing `cd` by itself and hitting `Return` takes us to the home directory. `cd ~` works as well.
+To go back to our home directory from here or anywhere else on the system, we have three options. Typing `cd` by itself and hitting `Return` always takes us to the home directory. `cd ~` works as well.
 We could also specify the absolute or relative paths, if we remember them (in the case of moving out of the root the relative path is the same as the absolute path):
 ```shell
-cd /home/compbiol
+cd /home/comp-biol
 ```
 This is the absolute path to our home directory, called `compbiol` (which is different from the more inclusive `home`!). We can also go back to the last directory we visited, which in this case is home:
 ```
@@ -150,6 +150,7 @@ mkdir: cannot create directory 'Directory11/SubdirA': No such file or directory
 mkdir: cannot create directory 'Directory15/SubdirC': No such file or directory
 ```
 One of the goals of this class is to convince you that the command line interface is very powerful. You should expect that the basic task of creating subdirectories within new parent directories should be trivial. This brings us to getting help.
+
 ### `man` (manual pages)
 Type:
 ```shell
@@ -198,20 +199,22 @@ cp -i Directory13/SubdirC/image-3.jpg .
 cp: overwrite './image-3.jpg'?
 ```
 The prompt will then wait for you type `y` for yes or `n` for no and press `Return`. 
-Try backing up `Sandbox` files `ants.txt` and `matrix-5214genes.phy` by copying them in a directory outside `Sandbox`.
+Try backing up `Sandbox` file `ants-na.txt` by copying it in a directory outside `Sandbox`.
+
 ### `mv` (move) – moving and renaming files and directories
 Moving of files without copying them is done by `mv`, which can also be used to rename them. It works very similarly to `cp`. You supply it with your source and destination. From `Sandbox/` type:
 ```shell
-mv ants.txt Directory1
-mv Directory1/ants.txt .
+mv ants-na.txt Directory1
+mv Directory1/ants-na.txt .
 ```
 Above we copied the file `ants.txt` to `Directory1/` and back to `Sandbox/`. If you want to rename a file, just give it the same destination with an alternative name as the second argument (i.e. the new name):
 ```shell
-cp ants.txt Directory1
-mv Directory1/ants.txt Directory1/formicidae.txt
+cp ants-na.txt Directory1
+mv Directory1/ants-na.txt Directory1/formicidae.txt
 ls Directory1
 ```
 Move also supports interactive mode (asks you in case of overwriting) with the `-i` option. Mv differs from `cp` in that it works on directories without any additional options.
+
 ### `rm` (remove) – removing files and directories
 The command `rm` is used to remove files. It’s not like moving things to ‘trash’- once you remove something there is no way to bring it back. It works similar to `cp` or `mv` and has to be supplied with `-r` option to be able to remove directories:
 ```shell
@@ -239,4 +242,4 @@ cp -i Directory11/SubdirB/*txt .
 ```
 `cp -i` here will notify you if you are about to overwrite some files in your working directory.
 Try listing, copying, and moving some `.jpg` files around using the asterisk wildcard. 
-You can also remove all those folders and files we created in `Sandbox` throughout this tutorial, but try to leave files `ants.txt` and `matrix-5214genes.phy`. If you haven’t already, you can back them up in a directory outside `Sandbox`.
+You can also remove all those folders and files we created in `Sandbox` throughout this tutorial, but try to leave the file `ants-na.txt`. If you haven’t already, you can back them up in a directory outside `Sandbox`.
