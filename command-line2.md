@@ -43,9 +43,9 @@ Compare the results of locate and find by searching your home directory for: 1) 
 You code could look like this:
 ```shell
 find ~ -name '*txt'
-locate '/home/compbiol/*txt'
+locate '/home/comp-biol/*txt'
 find ~ -name '*jpg'
-locate '/home/compbiol/*jpg'
+locate '/home/comp-biol/*jpg'
 ```
 You should be able to see the files you created today using `find`. `locate` may or may not work, depending on how often your system indexes things.
 ### `less` (viewing text files page by page)
@@ -57,8 +57,8 @@ less ~/Sandbox/ants-na.txt
 ### `head` and `tail` (print lines from file)
 These two handy commands let you take a look at the beginning or ending of a file. This is useful if you want to just get a sense of what’s in a text file. By default `head` and `tail` will print the first or last, respectively, ten lines. This can be changed by specifying a number preceded by a dash. The other argument will be the name of the file you want to look at:
 ```shell
-head ~/Sandbox/ants.txt
-head -50 ~/Sandbox/ants.txt
+head ~/Sandbox/ants-na.txt
+head -50 ~/Sandbox/ants-na.txt
 ```
 `tail` works in the same way, except that it prints lines from the 'tail' end of a file. It also has a very handy option `-f` for monitoring what is being written to a file in real time. This is useful for figuring out what the latest output from you script/bioinformatics pipeline/phylogenetic analysis program/etc. looks like.
 ### `cat` (concatenate and print contents)
@@ -119,8 +119,8 @@ cat -nT ~/Sandbox/ants-na.txt | tail -50
 ```
 Remember that `cat` is abbreviated ‘concatenate’. You can easily combine text files and write their output as a separate file:
 ```shell
-grep 'Oregon' ants-na.txt > ants-Oregon.txt
-cat ants-Idaho.txt ants-Washington.txt ants-Oregon > ants-PNW.txt
+grep 'Oregon' ants-na.txt > ants-OR.txt
+cat ants-ID.txt ants-WA.txt ants-OR > ants-PNW.txt
 cat *txt > all-text-files-in-directory.txt
 ```
 ### `wc` (word count) and `cut` (remove sections from each line)
