@@ -93,14 +93,6 @@ Similarly, to match the end of line we can use dollar sign:
 grep -E "[A-Za-z]+ee$" /usr/share/dict/words
 ```
 This finds all text that begins with any number of letters (including upper-case!) and has double 'e' at the end of the line.
-Similarly to beginning and end of line, you can match word boundaries. In this context, a 'word' is any sequence of characters that is composed of letters and/or digits; This is the so-called **_alphanumeric_** text. To signify the beginning of a word use backslash and less-than sign `\<` and backslash with>greater-than sign to match the end of a word:
-```shell
-grep -E 'secondary \<[a-z]+forest\>' ~/Sandbox/ants-na.txt
-```
-An alternative is to use forward slash followed by lower-case letter 'b'. `\b` signifies word boundary and will work for both beginning and end of alphanumeric string. This achieves the same as the above:
-```shell
-grep -E 'secondary \b[a-z]+forest\b' ~/Sandbox/ants.txt
-```
 ### Specifying number of matches
 You can tell the expression how many matches of a particular character or set you need. This is done using curly braces:
 ```shell
@@ -148,8 +140,8 @@ grep -E 'mol[etd]' /usr/share/dict/words
 ```
 We can also imagine more sophisticated alternatives:
 ```shell
-grep -Eo 'anic[0-9-]+|casent[0-9]+' ~/Sandbox/ants-na.txt | sort | head
-grep -Eo 'anic[0-9-]+|casent[0-9]+' ~/Sandbox/ants-na.txt | sort | tail
+grep -Eo 'anic[0-9-]+|casent[0-9]+' ~/Sandbox/ants-na.txt | sort | uniq | head
+grep -Eo 'anic[0-9-]+|casent[0-9]+' ~/Sandbox/ants-na.txt | sort | uniq | tail
 ```
 The above looks for anything that looks like the pattern to the left of the pipe, or anything that matches the pattern to the right of it.
 ### Shorthand character classes
