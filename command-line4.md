@@ -29,13 +29,13 @@ The last line in the file is denoted by `$`.
 
 You can also print lines that match a pattern, either a simple text match or a regular expression:
 ```shell
-sed -n '/Lasius/p' ~/Sandbox/ants-na.txt
+sed -n '/Anergates/p' ~/Sandbox/ants-na.txt
 ```
-The syntax is `sed -n '/PATTERN/p' input_file` This mimics `grep 'Lasius' ~/Sandbox/ants.txt`. With `sed`, however, we can easily combine addresses and patterns:
+The syntax is `sed -n '/PATTERN/p' input_file` This mimics `grep 'Anergates' ~/Sandbox/ants.txt`. With `sed`, however, we can easily combine addresses and patterns:
 ```sed
-sed -n '15000,/Lasius/p' ~/Sandbox/ants-na.txt
+sed -n '390000,/Anergates/p' ~/Sandbox/ants-na.txt
 ```
-The above prints from line no. 15,000 until it encounters a line that matches characters 'Lasius'.
+The above prints from line no. 390,000 until it encounters a line that matches characters 'Anergates'.
 Similarly to printing, you can delete select lines using `d` instead of `p`. In that case you would want to print the pattern buffer output by leaving out `-n`.
 ### Text replacement in `sed`
 Probably the most common use of `sed` is for replacing text from the command line. 
