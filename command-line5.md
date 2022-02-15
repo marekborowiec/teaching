@@ -48,3 +48,4 @@ You can filter out records that are above a certain number. The following will s
 ```shell
 awk 'BEGIN { FS = "\t" } ; $26 > 7500 { print $10, $11, $26 }'
 ```
+If you are working with sequence data files, such as `FASTA` and `FASTQ`, `BED`, `SAM`, or `VCF`, you will find [bioawk](https://github.com/lh3/bioawk) very useful and powerful. This is a tool you need to install separately, as it doesn't usually come with standard operating systems. You can find a nice write-up about `bioawk` functionality [here](https://bioinformaticsworkbook.org/Appendix/Unix/bioawk-basics.html) and a brief tutorial [here](https://github.com/vsbuffalo/bioawk-tutorial). 
