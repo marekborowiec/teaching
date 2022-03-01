@@ -10,8 +10,8 @@ Learning the basics of a programming language gives you flexibility in analyzing
 ## Python's interactive interpreter
 Your Python code can be a simple text file or it can be entered on an interactive interpreter that comes with the language. The interpreter shows you a prompt when it is wating for input and has the interface similar to the command line. The instructions you type in it are read and translated for the computer on the go. We will start working with the interpreter, in later sessions moving to a text file to save our code. Let’s enter the interpreter by typing `python3`  and pressing `Return`. You should see something like this:
 ```python
-Python 3.4.2 (default, Oct  8 2014, 13:18:07) 
-[GCC 4.9.1] on linux
+Python 3.6.5 (default, Apr  1 2018, 05:46:30) 
+[GCC 7.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
