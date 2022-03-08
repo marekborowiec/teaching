@@ -58,8 +58,6 @@ To add an item at a particular item, use the `insert()` method:
 ```python
 >>> print(list1)
 ['goodbye!', 123, True, 321]
->>> print(list1)
-['goodbye!', 123, True, 321]
 >>> list1.insert(2, False)
 >>> print(list1)
 ['goodbye!', 123, False, True, 321]
@@ -105,15 +103,30 @@ we can see that each element will be identified by its coordinates:
 ```
 In the example above we accessed the upper left value with the `[0][0]` index and lower right value with the `[2][2]` index.
 
-How would you make a and access items in a list of lists of lists?
+How would you make and access items in a list of lists of lists? Try adding new elements to existing lists within the list and lists to the main list.
 
-One final feature to mention here is the `list()` method, which is used to convert other data types into lists, similarly to `int()` or `str()` methods we already encountered.
+One final feature to mention here is the `list()` method, which is used to convert other data types into lists, similarly to `int()` or `str()` methods we already encountered. For example, you can convert a string into a list, like so:
+```python
+hello = 'hello!'
+print(hello)
+hello!
+list(hello)
+['h', 'e', 'l', 'l', 'o', '!']
+```
 
 ## Dictionaries
 Dictionaries are similar to lists because they can hold mutliple values. Dictionaries, however, have a way of indexing each value by a key that can be a string or an integer. When creating a dictionary, you need to assign both keys and values. The general syntax is that the key-value assosciation is indicated by the colon `:`, the pairs of key-value are separated by commas `,`, and the dictionary is enclosed in curly brackets `{}`:
 ```python
 >>> my_pets = {'dog' : 'black','cat' : 'red', 'ant' : 'yellow'}
 ```
+You can get all values or keys of a dictionary using the `keys()` and `values()` methods, respectively:
+```python
+>>> my_pets.keys()
+dict_keys(['dog', 'ant', 'cat'])
+>>> my_pets.values()
+dict_values(['black', 'yellow', 'red'])
+```
+The values returned are list-like, but are not true lists: you cannot use the familiar list methods on them directly. However, you can also convert these objects into true lists with the `list()` function. You can also use them in loops, at which we will look at shortly.
 In dictionaries, you access a value by using its key:
 ```python 
 >>> my_pets['dog']
@@ -129,16 +142,8 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 KeyError: 0
 ```
-The first error above shows that we cannot access a key in a doctionary the same way as we can access a value.The second error above shows that you cannot access a dictionary value by its index. In fact, dictionary data in Python is not ordered and beacuse of this accessing a dictionary with an index number does not make sense. Another important thing to remember about dictionaries is that while values can be repeated within a dictionary, all keys must be unique.
+The first error above shows that we cannot access a key in a doctionary the same way as we can access a value.The second error above shows that you cannot access a dictionary value by its index. In fact, dictionary data in Python is not ordered. Because of this, accessing a dictionary with an index number does not make sense. Another important thing to remember about dictionaries is that while values can be repeated within a dictionary, all keys must be unique.
 
-You can get all values or keys of a dictionary using the `keys()` and `values()` methods, respectively:
-```python
->>> my_pets.keys()
-dict_keys(['dog', 'ant', 'cat'])
->>> my_pets.values()
-dict_values(['black', 'yellow', 'red'])
-```
-The values returned are list-like, but are not true lists: you cannot use the familiar list methods on them directly. However, you can also convert these objects into true lists with the `list()` function. You can also use them in loops, at which we will look at shortly.
 ```python
 >>> pets = list(my_pets.keys())
 >>> pets
