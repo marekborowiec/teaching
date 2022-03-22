@@ -1,7 +1,7 @@
 # PYTHON PROGRAMMING PART 3
 
 ## Conditional statements
-Sometimes we want certain action to be performed if a condition is met. This is where Boolean values and `if`, `else`, and `elif` statements come into play. Let's put to use an `if` statement inside a loop to check (five times) if a plant name is in the dictionary and print out the family it belongs to. We will use the function `input()` to get input from the program's user.
+Sometimes we want certain action to be performed if a condition is met. This is where Boolean values and `if`, `else`, and `elif` statements come into play. Let's put to use an `if` statement inside a loop to check (three times) if a plant name is in the dictionary and print out the family it belongs to. We will use the function `input()` to get input from the program's user.
 ```python
 #! /usr/bin/env python3
 
@@ -102,39 +102,24 @@ The above will call `open()` on a file `ants.txt` and store a file object in the
 The file object created by `open()` has its own methods, just like string, integer, or Boolean value objects. Python gives you more than one option to read in text file contents. You can store them as a single long string with each newline represented by the special character `\n` or you can read lines into a list of lines. Reading into a string is accomplished with `.read()` and reading into a list of lines is accomplished with `.readlines()`. Let's read in the file contents as a string and loop over its elements:
 ```python
 # read in file contents as string
-in_file_string = in_file.read()
+in_file_lines = in_file.readlnes()
 
 # loop over each character in string
-for i in in_file_string:
-    print(i)
+for line in in_file_lines[:10]:
+    print(line)
 
 # close file
 in_file.close()
 ```
-It is good practice to close the file object using the `.close()` method after you are done with it. This potentially helps free resources and protects your program from certain unwanted behaviors. Save and run your script. You should see that the loop is printing one by one every character in the file; you can interrupt it with `Ctrl + C` if using a PC computer or `Command + .` on Mac. This is the behavior we saw earlier when looping over strings. The `.read()` method is useful when you don't want to repeat operations on each line of a file but rather perform some function that applies to the file as a whole.
+It is good practice to close the file object using the `.close()` method after you are done with it. This potentially helps free resources and protects your program from certain unwanted behaviors. Save and run your script. The `.readlines` method returns a list of lines in a file, each of which is a string. 
 
-An alternative to `.read()` is the `.readlines` method, returning a list of lines in a file, each of which is a string. Comment out the `in_file_string` variable because it's impossible to read data from a file object more than once and add a new variable `in_file_list` that uses `.readlines()`. You can comment out or the string loop from the previous example so that your program uses the newly created list of lines to loop over instead:
-```python
-# read in file contents as string
-#in_file_string = in_file.read()
-# read in file contents as list of strings (lines)
-in_file_list = in_file.readlines()
+The alternative`.read()` method is useful when you don't want to repeat operations on each line of a file but rather perform some function that applies to the file as a whole.
 
-# loop over all characters in string
-#for i in in_file_string:
-#    print(i)
-
-# loop over all elements in list
-for line in in_file_list:
-    print(i)
-
-in_file.close()
-```
 ### Putting file input to work
 Now that you know the basics of opening and closing files, you can use that knowledge to perform some simple operations on the file contents. Let's try to use our knowledge of the for loop to print every line that contains the text `Moscow` in it. Modify your loop to read:
 ```python
-# loop over all elements in list
-for line in in_file_list:
+# loop over all lines
+for line in in_file_lines:
     # if line contains 'Moscow', print it
     if "Moscow" in line:
         print(line)
@@ -179,7 +164,7 @@ matching_lines = []
  
 # loop over all elements in list
 for line in in_file_list:
-    # if line contains match, append it to matching_lines
+    # if line contains a match, append it to matching_lines
     ...
     ...
 ```
@@ -207,7 +192,7 @@ Your script should now look like this:
 # create file object
 in_file = open("ants-na.txt")
 # read in file contents as list of strings (lines)
-in_file_list = in_file.readlines()
+in_file_lines = in_file.readlines()
 # what to look for
 match = "Moscow"
 # what to print if match not found
@@ -216,7 +201,7 @@ message = "Line did not match"
 matching_lines = []
  
 # loop over all elements in list
-for line in in_file_list:
+for line in in_file_lines:
     # if line contains match, append it to matching_lines
     if match in line:
         matching_lines.append(line)
