@@ -98,10 +98,10 @@ The above will call `open()` on a file `ants.txt` and store a file object in the
 ### Reading file contents and closing
 The file object created by `open()` has its own methods, just like string, integer, or Boolean value objects. Python gives you more than one option to read in text file contents. You can store them as a single long string with each newline represented by the special character `\n` or you can read lines into a list of lines. Reading into a string is accomplished with `.read()` and reading into a list of lines is accomplished with `.readlines()`. Let's read in the file contents as a string and loop over its elements:
 ```python
-# read in file contents as string
+# read in file contents as a list of strings
 in_file_lines = in_file.readlnes()
 
-# loop over each character in string
+# loop over first ten strings in the list
 for line in in_file_lines[:10]:
     print(line)
 
@@ -127,7 +127,7 @@ Your code could look like this:
 ```python
 # loop over all elements in list
 for line in in_file_list:
-    # if line contains 'Yolo', print it
+    # if line contains 'Moscow', print it
     if "Moscow" in line:
         print(line)
     else:
@@ -150,7 +150,7 @@ for line in in_file_list:
     else:
         print(message)
 ```
-Let's say you want to store the lines that matched in the previous example in a list. You know the `.append()` method that you could use to append the every time it matches in the loop. However, first you need to create an empty list outside of the loop to append values to it inside the loop. Try to fill in code inside the loop yourself:
+Let's say you want to store the lines that matched in the previous example in a list. You know the `.append()` method that you could use to append the every time it matches in the loop. However, first you need to create an empty list **outside** of the loop to append values to it inside the loop. Try to fill in code inside the loop yourself:
 ```python
 # what to look for
 match = "Moscow"
