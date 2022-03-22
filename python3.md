@@ -68,9 +68,6 @@ while bytes > 500:
 ```
 The computer starts printing very big numbers really quickly and you need to interrupt. This is because when the `while` loop with this condition and starting value would never return `False`.
 
-## User input
-While discussing loops and flow control we encountered the `input()` function that made our program prompt for user input that can be stored as a variable. Today we will learn more about ways in which your program can take input by reading from files and understanding command line arguments.
-
 ## Reading from and writing to files
 Much of the time you want your script to perform some operations on contents of a text file, such as the DNA sequence alignment or specimen data files we worked with on the command line. 
 
