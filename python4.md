@@ -21,14 +21,16 @@ out_file = open("old_file.txt", "a")
 ```
 Now that you have a file object for your output, you need to `.write()` its contents, much like you read them in a case of getting input:
 ```python
+contents = "hello world!"
 out_file.write(contents)
 ```
-Note that here you don't need to save the written contents in a new variable; the `out_file` object is populated with text in place. Write takes only strings as input, so you need to first convert your list of matches into a string. Unfortunately, if you convert a list to a string using the familiar `str()` function, it will contain all the unnecessary special characters used in the list, including quotes, commas, and square brackets. A more elegant way of joining list elements that are themselves strings is done using the `.join()` method for strings. To join your list use:
+Write takes only strings as input, so you need to first convert whatever you want to write (integers, list, etc.) into a string. Unfortunately, if you convert a list, for example, to a string using the familiar `str()` function, it will contain all the unnecessary special characters used in the list, including quotes, commas, and square brackets. A more elegant way of joining list elements that are themselves strings is done using the `.join()` method for strings. To join your list use:
 ```python
 # join list into string
-output = ''.join(matching_lines)
+some_list = ['one', '2', 'three']
+output = ' '.join(some_list)
 ```
-In `.join()` you apply the function on a separator and supply the list or other sequence as an argument. You can join elements in your list using any separator, which in the example above is `''` or none. This is fine in our case since the strings in our list already have `\n` newline characters at the end, so the output will be properly formatted. However, you can use any character or string as the delimiter for `.join()`.  
+In `.join()` you apply the function on a separator and supply the list or other sequence as an argument. You can join elements in your list using any separator, which in the example above is `' '` or a single space. You can use any character or string as the delimiter for `.join()`.  
 
 Finally, you want to close your `out_file`:
 ```python
