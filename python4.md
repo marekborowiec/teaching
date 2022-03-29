@@ -37,24 +37,6 @@ Finally, you want to close your `out_file`:
 # close output file
 out_file.close()
 ``` 
-Try saving the contents of your list of matching lines into a new file called "Moscow_matches.txt". 
-
-The last several lines of your code should now look like this:
-```python
-# print list with matching lines
-print(matching_lines)
-# join list into string
-output = ''.join(matching_lines)
-# close input file
-in_file.close()
-# open output file
-out_file = open("Moscow_matches.txt", "w")
-# write matching lines to output file
-out_file.write(output)
-# close output file
-out_file.close()
-```
-You can turn off printing of the list by commenting it out or move the print statement after joining the list to see how it looks before it's written to the ouput file. Take a look at your newly created `Moscow_matches.txt` file, either using the command line `cat` or just opening it in `Sublime Text`.
 ## Importing modules and using command line arguments
 Just as you can supply arguments to the command (e.g. file name, number of lines printed), you can make your program take arguments while it's being run from the command line. This makes your program more flexible. Before we are ready to work with the arguments, however, we need to know what modules are all about.
 ### Modules in Python
@@ -158,9 +140,10 @@ import sys
 in_file_name = sys.argv[1]
 # define the second argument as output file name
 out_file_name = sys.argv[2]
-# create file object
 
+# define one, large function that does all the work 
 def process_file(in_file_name, out_file_name):
+    # create file object
     in_file = open(in_file_name)
     # read in file contents as list of strings (lines)
     in_file_list = in_file.readlines()
