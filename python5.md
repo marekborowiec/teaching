@@ -132,18 +132,17 @@ def get_matching_lines(list_of_lines, pattern):
 ```
 This gave us output that is much more informative. Now we can go ahead and start selecting columns that are relevant to us. We can do this in a separate function or keep modifying our `split_line_into_columns()` function.
 ```python
-def split_line_into_columns(line):
-	list_of_columns = line.strip('\n').split('\t')
+def pretty_print_relevant_info(line):
+	list_of_columns = split_line_into_columns(line)
 	# access different columns by index
 	lat = list_of_columns[21]
 	lon = list_of_columns[22]
-	species = list_of_columns[9]
+	name = list_of_columns[13]
 	locality = list_of_columns[16]
 	elevation = list_of_columns[25]
 	# pretty-print information we're interested in 
 	print('Species:{} Locality:{} Lat:{} Long:{} Elevation:{}'.format(
 		species, locality, lat, lon, elevation
 		))
-	return list_of_columns
 ```
 You can now call this function at the end of the script on either all lines in a loop, or just the lines that match your pattern, or you can insert the call to it into `get_matching_lines().` Possibilities are endless!
