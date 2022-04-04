@@ -130,10 +130,9 @@ def get_matching_lines(list_of_lines, pattern):
 			matches.append(line)
 	return matches
 ```
-This gave us output that is much more informative. Now we can go ahead and start selecting columns that are relevant to us. We can do this in a separate function or keep modifying our `split_line_into_columns()` function.
+This gave us output that is much more informative. Now we can go ahead and start selecting columns that are relevant to us. We can do this modifying our `split_line_into_columns()` function or creating a new one:
 ```python
-def pretty_print_relevant_info(line):
-	list_of_columns = split_line_into_columns(line)
+def pretty_print_info(list_of_columns):
 	# access different columns by index
 	lat = list_of_columns[21]
 	lon = list_of_columns[22]
