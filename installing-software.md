@@ -76,3 +76,24 @@ After this, all it should take is:
 ```bash
 sudo pip install biopython
 ```
+Unfortunately, we get an error message. After looking it up on the web, it seems that updating `pip` may help:
+```bash
+python -m pip install --upgrade
+sudo pip install biopython
+```
+Now we are getting a different error: `Biopython` requires Python v3 and newer, not Python 2. We can confirm we do have both Python versions:
+```bash
+python # quit()
+python3
+```
+So why is this an issue? It turns out that `apt` installed `pip` only for the default version of our Python, which is v2. In order to install it under Python3,   
+```bash
+sudo apt install python3-pip
+```
+Now we can explicitly call Python3 and its `pip` to install `Biopython`:
+```bash
+python3 -m pip install biopython
+```
+Phew! Finally we succeeded. You can verify `Biopython` is installed by entering the Python3 interpreter and typing `import Bio`. You can see the version by running `Bio.__version__`.
+
+You can see how difficult it may be to even get off the ground with scientific programs. Hopefully now you have some ideas on how to tackle this.
